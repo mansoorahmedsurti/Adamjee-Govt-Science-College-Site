@@ -84,7 +84,7 @@ export default function Home() {
                 </Link>
               ))}
             </div>
-            <button className="btn-gold md:hidden">Menu</button>
+            <button className="md:hidden px-4 py-2 rounded-lg font-medium transition duration-300" style={{ backgroundColor: "#2563eb", color: "white" }} onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#1e40af")} onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#2563eb")}>Menu</button>
           </div>
         </div>
       </nav>
@@ -510,6 +510,7 @@ export default function Home() {
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-[#2563eb] hover:text-blue-400"
+                      title="Instagram"
                     >
                       <Instagram size={24} />
                     </a>
@@ -518,6 +519,7 @@ export default function Home() {
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-[#2563eb] hover:text-blue-400"
+                      title="Official Facebook Page"
                     >
                       <Facebook size={24} />
                     </a>
@@ -528,7 +530,7 @@ export default function Home() {
                       className="text-[#2563eb] hover:text-blue-400"
                       title="SECCAP Facebook Group"
                     >
-                      <Facebook size={24} />
+                      <Users size={24} />
                     </a>
                   </div>
                 ) : (
@@ -639,6 +641,10 @@ export default function Home() {
                     <div className="bg-blue-50 border-l-4 border-blue-600 p-6 rounded">
                       <p className="font-bold text-blue-900 mb-2">Friday</p>
                       <p className="text-blue-800 text-lg">8:30 AM - 12:30 PM</p>
+                    </div>
+                    <div className="bg-blue-50 border-l-4 border-blue-600 p-6 rounded">
+                      <p className="font-bold text-blue-900 mb-2">Saturday</p>
+                      <p className="text-blue-800 text-lg">8:00 AM - 1:30 PM</p>
                     </div>
                     <div className="bg-blue-50 border-l-4 border-blue-600 p-6 rounded">
                       <p className="font-bold text-blue-900 mb-2">Sunday</p>

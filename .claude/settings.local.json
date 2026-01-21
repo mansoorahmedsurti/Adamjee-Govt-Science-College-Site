@@ -3,7 +3,13 @@
     "allow": [
       "Bash(git init)",
       "Bash(git remote add origin https://github.com/mansoorahmedsurti/Adamjee-Govt-Science-College-Site.git)",
-      "Bash(git add .)"
+      "Bash(git add .)",
+      "Bash(git commit -m \"Initial commit\")",
+      "Bash(git push -u origin master)",
+      "Bash(dir public)",
+      "Bash(powershell \"Remove-Item public/favicon.ico\")",
+      "Bash(ren \"C:\\\\Users\\\\Administrator\\\\Desktop\\\\adamjee-gsc\\\\DEPLOYMENT_GUIDE.md\" \"DEPLOYMENT_GUIDE.md\")",
+      "Bash(powershell \"Rename-Item -Path ''C:/Users/Administrator/Desktop/adamjee-gsc/DEPLOYMENT_GUIDE.md'' -NewName ''DEPLOYMENT_GUIDE.md''\")"
     ]
   }
 }
