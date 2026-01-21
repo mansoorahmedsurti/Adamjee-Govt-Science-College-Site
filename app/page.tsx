@@ -2,6 +2,7 @@
 
 import Link from "next/link"
 import Image from "next/image"
+import { Analytics } from "@vercel/analytics/next"
 import { Shield, Zap, Users, MapPin, Mail, Instagram, Facebook, Award, Phone, MessageCircle } from "lucide-react"
 import { useEffect, useState, useRef } from "react"
 import { motion } from "framer-motion"
@@ -659,19 +660,19 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer className="footer-premium py-16">
+      <footer className="footer-premium py-16" style={{ backgroundColor: "#f0f0f0" }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-4 gap-12 mb-12 border-b border-[#2563eb]/30 pb-12">
+          <div className="grid md:grid-cols-4 gap-12 mb-12 border-b border-[#2563eb] pb-12">
             <div>
-              <h4 className="text-xl font-bold mb-4">AGSC Karachi</h4>
-              <p className="text-sm leading-relaxed">Excellence in Science Education serving Karachi since 1961</p>
+              <h4 className="text-xl font-bold mb-4" style={{ color: "#003319" }}>AGSC Karachi</h4>
+              <p className="text-sm leading-relaxed" style={{ color: "#4b5563" }}>Excellence in Science Education serving Karachi since 1961</p>
             </div>
             <div>
-              <h4 className="text-lg font-bold mb-4">Quick Links</h4>
+              <h4 className="text-lg font-bold mb-4" style={{ color: "#003319" }}>Quick Links</h4>
               <ul className="space-y-2 text-sm">
                 {["Academics", "Admissions", "History", "Contact"].map((link) => (
                   <li key={link}>
-                    <Link href={`#${link.toLowerCase()}`} className="hover:text-[#2563eb] transition">
+                    <Link href={`#${link.toLowerCase()}`} className="hover:text-[#2563eb] transition" style={{ color: "#4b5563" }}>
                       {link}
                     </Link>
                   </li>
@@ -679,20 +680,20 @@ export default function Home() {
               </ul>
             </div>
             <div>
-              <h4 className="text-lg font-bold mb-4">Departments</h4>
+              <h4 className="text-lg font-bold mb-4" style={{ color: "#003319" }}>Departments</h4>
               <ul className="space-y-2 text-sm">
-                {["Pre-Engineering", "Pre-Medical", "Computer Science", "General Science"].map((dept) => (
-                  <li key={dept}>{dept}</li>
+                {["Pre-Engineering", "Pre-Medical", "Computer Science"].map((dept) => (
+                  <li key={dept} style={{ color: "#4b5563" }}>{dept}</li>
                 ))}
               </ul>
             </div>
             <div>
-              <h4 className="text-lg font-bold mb-4">Contact</h4>
-              <p className="text-sm mb-2">agsckarachi@gmail.com</p>
-              <p className="text-sm">V2JP+PGJ, Business Recorder Road, Soldier Bazaar, Garden East, Karachi</p>
+              <h4 className="text-lg font-bold mb-4" style={{ color: "#003319" }}>Contact</h4>
+              <p className="text-sm mb-2" style={{ color: "#4b5563" }}>agsckarachi@gmail.com</p>
+              <p className="text-sm" style={{ color: "#4b5563" }}>V2JP+PGJ, Business Recorder Road, Soldier Bazaar, Garden East, Karachi</p>
             </div>
           </div>
-          <div className="text-center text-sm text-[#2563eb]/70 border-t border-[#2563eb]/20 pt-8">
+          <div className="text-center text-sm text-[#003319] border-t border-[#2563eb] pt-8">
             <p>&copy; 2026 Adamjee Government Science College. All rights reserved.</p>
             <p className="mt-4">
               Designed & Developed by{" "}
@@ -700,7 +701,7 @@ export default function Home() {
                 href="https://mansoor--ahmed.vercel.app/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-[#2563eb] hover:text-blue-400 font-semibold"
+                className="text-[#1e3a8a] hover:text-blue-700 font-semibold"
               >
                 Mansoor Ahmed
               </a>
