@@ -16,9 +16,7 @@ export const metadata: Metadata = {
   description:
     "Premier science college in Karachi with Pre-Engineering, Pre-Medical, and Computer Science programs. Excellence in education since 1961.",
   icons: {
-    icon: [
-      { url: '/agsc.png', sizes: '192x192', type: 'image/png' },
-    ],
+    icon: '/agsc.png',
     shortcut: '/agsc.png',
     apple: '/agsc.png',
   },
