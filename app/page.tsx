@@ -84,7 +84,7 @@ export default function Home() {
                 </Link>
               ))}
             </div>
-            <button className="md:hidden px-4 py-2 rounded-lg font-medium transition duration-300" style={{ backgroundColor: "#2563eb", color: "white" }} onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#1e40af")} onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#2563eb")}>Menu</button>
+            <button className="md:hidden w-12 h-12 rounded-full font-medium transition duration-300 flex items-center justify-center" style={{ backgroundColor: "#2563eb", color: "white" }} onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#1e40af")} onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#2563eb")}>☰</button>
           </div>
         </div>
       </nav>
