@@ -6,6 +6,7 @@ import { Analytics } from "@vercel/analytics/next"
 import { Shield, Zap, Users, MapPin, Mail, Instagram, Facebook, Award, Phone, MessageCircle } from "lucide-react"
 import { useEffect, useState, useRef } from "react"
 import { motion } from "framer-motion"
+import FacebookFeed from "@/components/FacebookFeed"
 
 function AnimatedCounter({ end, duration = 2 }: { end: number; duration?: number }) {
   const [count, setCount] = useState(0)
@@ -409,89 +410,12 @@ export default function Home() {
             Stay updated with the latest happenings at Adamjee Government Science College
           </p>
 
-          {/* Facebook Timeline Carousel */}
+          {/* Facebook Timeline */}
           <div className="mb-12">
             <h3 className="text-2xl font-bold mb-6 text-center text-forest-green">
               Facebook Timeline
             </h3>
-            <div className="relative">
-              <div className="overflow-hidden">
-                <div className="flex gap-6 pb-4" style={{ overflowX: "auto", scrollbarWidth: "none", msOverflowStyle: "none" }}>
-                  <style jsx>{`
-                    .scroll-container::-webkit-scrollbar {
-                      display: none;
-                    }
-                  `}</style>
-                  {[
-                    {
-                      id: 1,
-                      date: "Jan 20, 2024",
-                      title: "New Academic Year Begins",
-                      content: "Excited to welcome our new batch of students for the 2024 academic year! Orientation week starts Monday.",
-                      likes: "124",
-                      comments: "18"
-                    },
-                    {
-                      id: 2,
-                      date: "Jan 18, 2024",
-                      title: "Science Fair Winners",
-                      content: "Congratulations to our students who won multiple awards at the regional science fair!",
-                      likes: "245",
-                      comments: "32"
-                    },
-                    {
-                      id: 3,
-                      date: "Jan 15, 2024",
-                      title: "Lab Equipment Upgrade",
-                      content: "Our chemistry lab has received new state-of-the-art equipment for enhanced learning.",
-                      likes: "189",
-                      comments: "24"
-                    },
-                    {
-                      id: 4,
-                      date: "Jan 12, 2024",
-                      title: "Alumni Meet Success",
-                      content: "Thank you to all alumni who joined us for the annual meet and networking event.",
-                      likes: "203",
-                      comments: "41"
-                    },
-                    {
-                      id: 5,
-                      date: "Jan 10, 2024",
-                      title: "Faculty Achievement",
-                      content: "Our faculty member Dr. Ahmed published groundbreaking research in the International Journal of Science.",
-                      likes: "176",
-                      comments: "29"
-                    }
-                  ].map((post) => (
-                    <div key={post.id} className="flex-shrink-0 w-80 bg-white rounded-lg shadow-lg p-6 border border-gray-200">
-                      <div className="flex items-center gap-3 mb-4">
-                        <div className="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center">
-                          <span className="text-blue-600 font-bold">AGSC</span>
-                        </div>
-                        <div>
-                          <h4 className="font-bold text-forest-green">Adamjee Government Science College</h4>
-                          <p className="text-xs text-gray-500">{post.date}</p>
-                        </div>
-                      </div>
-                      <h5 className="font-bold mb-2 text-forest-green">{post.title}</h5>
-                      <p className="text-gray-700 text-sm mb-4">{post.content}</p>
-                      <div className="flex gap-4 text-xs text-gray-500">
-                        <span className="flex items-center gap-1">
-                          <span className="text-red-500">❤</span> {post.likes}
-                        </span>
-                        <span className="flex items-center gap-1">
-                          <span className="text-blue-500">💬</span> {post.comments}
-                        </span>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-              <p className="text-slate-500 text-sm mt-4 text-center italic">
-                Recent updates from our official Facebook page
-              </p>
-            </div>
+            <FacebookFeed />
           </div>
 
           {/* Call to action */}
