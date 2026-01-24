@@ -106,27 +106,27 @@ export default function Home() {
             </button>
           </div>
         </div>
+      </nav>
 
-        {/* Mobile Menu */}
-        <div className={`fixed inset-0 bg-black bg-opacity-50 z-40 transition-opacity duration-300 ${isMobileMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible'}`}
-             onClick={() => setIsMobileMenuOpen(false)}>
-          <div className={`absolute top-16 right-4 w-64 bg-white rounded-lg shadow-xl transform transition-transform duration-300 ease-in-out ${isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}
-               onClick={(e) => e.stopPropagation()}>
-            <div className="flex flex-col p-4 space-y-4">
-              {["Home", "Academics", "Tour", "Admissions", "History", "Contact"].map((item) => (
-                <Link
-                  key={item}
-                  href={`#${item.toLowerCase()}`}
-                  className="font-medium text-base py-2 px-4 transition duration-300 text-navy-blue hover:bg-blue-accent hover:text-white rounded"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  {item}
-                </Link>
-              ))}
-            </div>
+      {/* Mobile Menu - Positioned outside the navbar to avoid overlay issues */}
+      <div className={`fixed inset-0 bg-black bg-opacity-50 z-40 transition-opacity duration-300 ${isMobileMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible'} md:hidden`}
+           onClick={() => setIsMobileMenuOpen(false)}>
+        <div className={`absolute top-16 left-0 right-0 w-full bg-white shadow-xl transform transition-transform duration-300 ease-in-out ${isMobileMenuOpen ? 'translate-y-0' : '-translate-y-full'}`}
+             onClick={(e) => e.stopPropagation()}>
+          <div className="flex flex-col p-4 space-y-4">
+            {["Home", "Academics", "Tour", "Admissions", "History", "Contact"].map((item) => (
+              <Link
+                key={item}
+                href={`#${item.toLowerCase()}`}
+                className="font-medium text-base py-3 px-4 transition duration-300 text-navy-blue hover:bg-blue-accent hover:text-white rounded"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                {item}
+              </Link>
+            ))}
           </div>
         </div>
-      </nav>
+      </div>
 
       <main id="main-content">
 
