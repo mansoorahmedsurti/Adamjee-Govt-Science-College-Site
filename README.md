@@ -6,7 +6,7 @@
 An independent, non-official informational website for Adamjee Government Science College — built to improve accessibility of basic information for students and visitors while practicing real-world web development.
 ## Deployment
 
-Your project is live at:
+The project is live at:
 
 **[https://adamjee-govt-science-college.vercel.app](https://adamjee-govt-science-college.vercel.app)**
 
