@@ -3,6 +3,7 @@
 import Link from "next/link"
 import Image from "next/image"
 import { Analytics } from "@vercel/analytics/next"
+import { SpeedInsights } from "@vercel/speed-insights/next"
 import { Shield, Zap, Users, MapPin, Mail, Instagram, Facebook, Award, Phone, MessageCircle } from "lucide-react"
 import { useEffect, useState, useRef } from "react"
 import { motion } from "framer-motion"
@@ -73,6 +74,10 @@ export default function Home() {
       >
         Skip to main content
       </a>
+
+      {/* Vercel Analytics and Speed Insights */}
+      <Analytics />
+      <SpeedInsights />
 
       {/* Navigation */}
       <nav className="sticky top-0 z-50 navbar-premium">
