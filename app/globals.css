@@ -298,13 +298,11 @@ body::before {
 /* Premium footer with blue theme */
 .footer-premium {
   background: #1e3a8a;
-  background-image: radial-gradient(circle at 20% 50%, rgba(37, 99, 235, 0.05) 0%, transparent 50%),
-    radial-gradient(circle at 80% 80%, rgba(37, 99, 235, 0.03) 0%, transparent 50%);
-  color: #f9f9f5;
+  color: white;
 }
 
 .footer-premium h4 {
-  color: #2563eb;
+  color: white;
   font-family: "Playfair Display", serif;
 }
 

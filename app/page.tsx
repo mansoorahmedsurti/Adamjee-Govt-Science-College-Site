@@ -779,19 +779,19 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer className="footer-premium py-16 bg-gray-100">
+      <footer className="footer-premium py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-4 gap-12 mb-12 border-b border-blue-accent pb-12">
             <div>
-              <h4 className="text-xl font-bold mb-4 text-forest-green">AGSC Karachi</h4>
-              <p className="text-sm leading-relaxed text-gray-600">Excellence in Science Education serving Karachi since 1961</p>
+              <h4 className="text-xl font-bold mb-4">AGSC Karachi</h4>
+              <p className="text-sm leading-relaxed">Excellence in Science Education serving Karachi since 1961</p>
             </div>
             <div>
-              <h4 className="text-lg font-bold mb-4 text-forest-green">Quick Links</h4>
+              <h4 className="text-lg font-bold mb-4">Quick Links</h4>
               <ul className="space-y-2 text-sm">
                 {["Academics", "Tour", "Admissions", "History", "Contact"].map((link) => (
                   <li key={link}>
-                    <Link href={`#${link.toLowerCase()}`} className="hover:text-blue-accent transition text-gray-600">
+                    <Link href={`#${link.toLowerCase()}`} className="hover:text-blue-300 transition">
                       {link}
                     </Link>
                   </li>
@@ -799,20 +799,20 @@ export default function Home() {
               </ul>
             </div>
             <div>
-              <h4 className="text-lg font-bold mb-4 text-forest-green">Departments</h4>
+              <h4 className="text-lg font-bold mb-4">Departments</h4>
               <ul className="space-y-2 text-sm">
                 {["Pre-Engineering", "Pre-Medical", "Computer Science"].map((dept) => (
-                  <li key={dept} className="text-gray-600">{dept}</li>
+                  <li key={dept}>{dept}</li>
                 ))}
               </ul>
             </div>
             <div>
-              <h4 className="text-lg font-bold mb-4 text-forest-green">Contact</h4>
-              <p className="text-sm mb-2 text-gray-600">agsckarachi@gmail.com</p>
-              <p className="text-sm text-gray-600">V2JP+PGJ, Business Recorder Road, Soldier Bazaar, Garden East, Karachi</p>
+              <h4 className="text-lg font-bold mb-4">Contact</h4>
+              <p className="text-sm mb-2">agsckarachi@gmail.com</p>
+              <p className="text-sm">V2JP+PGJ, Business Recorder Road, Soldier Bazaar, Garden East, Karachi</p>
             </div>
           </div>
-          <div className="text-center text-sm text-forest-green border-t border-blue-accent pt-8">
+          <div className="text-center text-sm border-t border-blue-accent pt-8">
             <p>&copy; {new Date().getFullYear()} Adamjee Government Science College. All rights reserved.</p>
             <p className="mt-4">
               Designed & Developed by{" "}
@@ -820,7 +820,7 @@ export default function Home() {
                 href="https://mansoor--ahmed.vercel.app/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-navy-blue hover:text-blue-700 font-semibold"
+                className="hover:text-blue-300 font-semibold"
               >
                 Mansoor Ahmed
               </a>
