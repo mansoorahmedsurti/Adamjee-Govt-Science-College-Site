@@ -12,7 +12,6 @@ const FacebookFeed = () => {
         className="overflow-x-auto pb-4"
         style={{
           scrollbarWidth: 'thin',
-          msOverflowStyle: 'thin',
           WebkitOverflowScrolling: 'touch' // For smooth scrolling on iOS
         }}
       >
