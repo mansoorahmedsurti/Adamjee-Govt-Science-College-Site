@@ -300,6 +300,25 @@ body::before {
   box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
 }
 
+/* Premium button with blue theme */
+.btn-premium {
+  padding: 0.75rem 2rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  transition: all 0.3s;
+  background: #2563eb;
+  color: white;
+  display: inline-block;
+  text-align: center;
+  min-width: 200px;
+  text-decoration: none;
+}
+
+.btn-premium:hover {
+  background: #1d4ed8;
+  box-shadow: 0 8px 24px rgba(37, 99, 235, 0.3);
+}
+
 /* SECCAP section with blue accent */
 .seccap-section {
   background: #eff6ff;

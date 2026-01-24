@@ -12,7 +12,8 @@
       "Bash(powershell \"Rename-Item -Path ''C:/Users/Administrator/Desktop/adamjee-gsc/DEPLOYMENT_GUIDE.md'' -NewName ''DEPLOYMENT_GUIDE.md''\")",
       "Bash(git commit -m \"$\\(cat <<''EOF''\nfeat: Add favicon support and improve UI elements\n\n- Add favicon support with multiple sizes \\(16x16, 32x32\\) and apple touch icon\n- Fix mobile menu button styling for better appearance\n- Replace duplicate Facebook icon with Users icon for SECCAP group\n- Add Saturday to college timings section\n- Create deployment guide for Vercel hosting\n\nCo-Authored-By: Claude Sonnet 4.5 <noreply@anthropic.com>\nEOF\n\\)\")",
       "Bash(git push origin master)",
-      "Bash(git commit -m \"$\\(cat <<''EOF''\nfix: Improve mobile menu button styling and alignment\n\n- Change button to circular hamburger icon \\(☰\\) for better UX\n- Add flexbox classes for perfect vertical and horizontal centering\n- Set fixed width and height \\(w-12 h-12\\) for consistent sizing\n- Maintain hover effects and color scheme\n\nCo-Authored-By: Claude Sonnet 4.5 <noreply@anthropic.com>\nEOF\n\\)\")"
+      "Bash(git commit -m \"$\\(cat <<''EOF''\nfix: Improve mobile menu button styling and alignment\n\n- Change button to circular hamburger icon \\(☰\\) for better UX\n- Add flexbox classes for perfect vertical and horizontal centering\n- Set fixed width and height \\(w-12 h-12\\) for consistent sizing\n- Maintain hover effects and color scheme\n\nCo-Authored-By: Claude Sonnet 4.5 <noreply@anthropic.com>\nEOF\n\\)\")",
+      "Bash(npm run dev)"
     ]
   }
 }
