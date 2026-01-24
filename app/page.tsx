@@ -125,7 +125,7 @@ export default function Home() {
             <span
               className="inline-block px-6 py-2 rounded-full text-lg font-semibold bg-blue-accent text-white"
             >
-              Highest Merit Science College in Sindh
+              Highest Merit Science College in Karachi
             </span>
           </div>
           {/* Removed SECCAP button */}
