@@ -13,7 +13,17 @@
       "Bash(git commit -m \"$\\(cat <<''EOF''\nfeat: Add favicon support and improve UI elements\n\n- Add favicon support with multiple sizes \\(16x16, 32x32\\) and apple touch icon\n- Fix mobile menu button styling for better appearance\n- Replace duplicate Facebook icon with Users icon for SECCAP group\n- Add Saturday to college timings section\n- Create deployment guide for Vercel hosting\n\nCo-Authored-By: Claude Sonnet 4.5 <noreply@anthropic.com>\nEOF\n\\)\")",
       "Bash(git push origin master)",
       "Bash(git commit -m \"$\\(cat <<''EOF''\nfix: Improve mobile menu button styling and alignment\n\n- Change button to circular hamburger icon \\(☰\\) for better UX\n- Add flexbox classes for perfect vertical and horizontal centering\n- Set fixed width and height \\(w-12 h-12\\) for consistent sizing\n- Maintain hover effects and color scheme\n\nCo-Authored-By: Claude Sonnet 4.5 <noreply@anthropic.com>\nEOF\n\\)\")",
-      "Bash(npm run dev)"
+      "Bash(npm run dev)",
+      "Bash(npm install)",
+      "Bash(git add package.json components/FacebookFeed.tsx)",
+      "Bash(git pull origin master)",
+      "Bash(npx pnpm install --lockfile-only)",
+      "Bash(git commit -m \"fix: Update pnpm-lock.yaml to match package.json changes\n\n- Regenerate lockfile to resolve deployment issue\n- Sync dependency versions between package.json and pnpm-lock.yaml\n- Resolve ERR_PNPM_OUTDATED_LOCKFILE error for successful deployment\")",
+      "Bash(git add components/FacebookFeed.tsx app/page.tsx)",
+      "Bash(git commit -m \"feat: Update Facebook feed and footer contacts\n\n- Remove horizontal scrolling from Facebook feed\n- Center the Facebook timeline component\n- Remove follow button from Facebook section\n- Add phone number and WhatsApp to footer contact section\n- Simplify Facebook feed component structure\")",
+      "Bash(git commit -m \"feat: Update hero section text\n\n- Change ''Highest Merit Science College in Sindh'' to ''Highest Merit Science College in Karachi''\")",
+      "Bash(dir /s styles)",
+      "Bash(dir /s *.tsx *.ts *.jsx *.js)"
     ]
   }
 }

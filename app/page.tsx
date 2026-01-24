@@ -55,6 +55,7 @@ export default function Home() {
 
   const [newsIndex, setNewsIndex] = useState(0)
   const [activeTab, setActiveTab] = useState("location")
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -94,9 +95,30 @@ export default function Home() {
             <button
               className="md:hidden w-12 h-12 rounded-full font-medium transition duration-300 flex items-center justify-center bg-blue-accent text-white hover:bg-navy-dark focus:outline-none focus:ring-2 focus:ring-blue-accent focus:ring-offset-2"
               aria-label="Mobile menu"
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             >
-              ☰
+              {isMobileMenuOpen ? '✕' : '☰'}
             </button>
+          </div>
+        </div>
+
+        {/* Mobile Menu */}
+        <div className={`fixed inset-0 bg-black bg-opacity-50 z-40 transition-opacity duration-300 ${isMobileMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible'}`}
+             onClick={() => setIsMobileMenuOpen(false)}>
+          <div className={`absolute top-16 right-4 w-64 bg-white rounded-lg shadow-xl transform transition-transform duration-300 ease-in-out ${isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}
+               onClick={(e) => e.stopPropagation()}>
+            <div className="flex flex-col p-4 space-y-4">
+              {["Home", "Academics", "Tour", "Admissions", "History", "Contact"].map((item) => (
+                <Link
+                  key={item}
+                  href={`#${item.toLowerCase()}`}
+                  className="font-medium text-base py-2 px-4 transition duration-300 text-navy-blue hover:bg-blue-accent hover:text-white rounded"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  {item}
+                </Link>
+              ))}
+            </div>
           </div>
         </div>
       </nav>
