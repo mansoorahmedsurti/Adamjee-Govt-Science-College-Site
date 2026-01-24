@@ -63,39 +63,51 @@ export default function Home() {
   }, [newsItems.length])
 
   return (
-    <div style={{ backgroundColor: "#f9f9f5" }}>
+    <div className="bg-beige">
+      {/* Skip link for accessibility */}
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-blue-accent focus:text-white focus:rounded-lg focus:shadow-lg"
+      >
+        Skip to main content
+      </a>
+
       {/* Navigation */}
       <nav className="sticky top-0 z-50 navbar-premium">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center gap-3">
-              <Image src="/images/agsc.png" alt="AGSC Logo" width={48} height={48} className="w-12 h-12" />
+              <Image src="/images/agsc.png" alt="Adamjee Government Science College Logo" width={48} height={48} className="w-12 h-12" />
             </div>
             <div className="hidden md:flex gap-8">
               {["Home", "Academics", "Tour", "Admissions", "History", "Contact"].map((item) => (
                 <Link
                   key={item}
                   href={`#${item.toLowerCase()}`}
-                  className="font-medium text-sm transition duration-300"
-                  style={{ color: "#1e3a8a" }}
-                  onMouseEnter={(e) => (e.currentTarget.style.color = "#2563eb")}
-                  onMouseLeave={(e) => (e.currentTarget.style.color = "#1e3a8a")}
+                  className="font-medium text-sm transition duration-300 text-navy-blue hover:text-blue-accent"
                 >
                   {item}
                 </Link>
               ))}
             </div>
-            <button className="md:hidden w-12 h-12 rounded-full font-medium transition duration-300 flex items-center justify-center" style={{ backgroundColor: "#2563eb", color: "white" }} onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#1e40af")} onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#2563eb")}>☰</button>
+            <button
+              className="md:hidden w-12 h-12 rounded-full font-medium transition duration-300 flex items-center justify-center bg-blue-accent text-white hover:bg-navy-dark focus:outline-none focus:ring-2 focus:ring-blue-accent focus:ring-offset-2"
+              aria-label="Mobile menu"
+            >
+              ☰
+            </button>
           </div>
         </div>
       </nav>
 
+      <main id="main-content">
+
       {/* Hero Section */}
       <section id="home" className="relative h-screen overflow-hidden flex items-center justify-center">
-        <Image src="/images/agscpics.jpg" alt="AGSC Campus" fill className="object-cover absolute inset-0" priority />
+        <Image src="/images/agscpics.jpg" alt="Adamjee Government Science College Campus" fill className="object-cover absolute inset-0" priority />
 
         {/* Dark overlay */}
-        <div className="absolute inset-0" style={{ backgroundColor: "rgba(0, 51, 25, 0.5)" }}></div>
+        <div className="absolute inset-0 bg-[#003319]/50"></div>
 
         {/* Content */}
         <motion.div
@@ -104,14 +116,13 @@ export default function Home() {
           transition={{ duration: 0.8 }}
           className="relative z-10 text-center text-white max-w-4xl mx-auto px-4"
         >
-          <h1 className="text-5xl md:text-7xl font-bold mb-6" style={{ fontFamily: "'Playfair Display', serif" }}>
+          <h1 className="text-5xl md:text-7xl font-bold mb-6 font-playfair">
             Adamjee Government Science College
           </h1>
           <p className="text-xl md:text-2xl mb-8">Excellence in Science Education Since 1961</p>
           <div className="mb-8">
             <span
-              className="inline-block px-6 py-2 rounded-full text-lg font-semibold"
-              style={{ backgroundColor: "#2563eb", color: "white" }}
+              className="inline-block px-6 py-2 rounded-full text-lg font-semibold bg-blue-accent text-white"
             >
               Highest Merit Science College in Sindh
             </span>
@@ -121,29 +132,29 @@ export default function Home() {
       </section>
 
       {/* Quick Stats */}
-      <section className="py-20 bg-white border-t-4" style={{ borderColor: "#2563eb" }}>
+      <section className="py-20 bg-white border-t-4 border-blue-accent">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             <div className="counter-card hover-lift">
-              <div className="text-3xl md:text-4xl font-bold" style={{ color: "#2563eb" }}>
+              <div className="text-3xl md:text-4xl font-bold text-blue-accent">
                 <AnimatedCounter end={1500} />+
               </div>
               <div className="text-gray-600 mt-2">Students Enrolled</div>
             </div>
             <div className="counter-card hover-lift">
-              <div className="text-3xl md:text-4xl font-bold" style={{ color: "#2563eb" }}>
+              <div className="text-3xl md:text-4xl font-bold text-blue-accent">
                 <AnimatedCounter end={62} />+
               </div>
               <div className="text-gray-600 mt-2">Years of Excellence</div>
             </div>
             <div className="counter-card hover-lift">
-              <div className="text-3xl md:text-4xl font-bold" style={{ color: "#2563eb" }}>
+              <div className="text-3xl md:text-4xl font-bold text-blue-accent">
                 <AnimatedCounter end={25000} />+
               </div>
               <div className="text-gray-600 mt-2">Alumni Worldwide</div>
             </div>
             <div className="counter-card hover-lift">
-              <div className="text-3xl md:text-4xl font-bold" style={{ color: "#2563eb" }}>
+              <div className="text-3xl md:text-4xl font-bold text-blue-accent">
                 <AnimatedCounter end={80} />+
               </div>
               <div className="text-gray-600 mt-2">Faculty Members</div>
@@ -153,7 +164,7 @@ export default function Home() {
       </section>
 
       {/* Academics Section */}
-      <section id="academics" className="py-20" style={{ backgroundColor: "#f9f9f5" }}>
+      <section id="academics" className="py-20 bg-beige">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -162,14 +173,12 @@ export default function Home() {
             viewport={{ once: true }}
           >
             <h2
-              className="text-5xl font-bold mb-4"
-              style={{ fontFamily: "'Playfair Display', serif", color: "#003319" }}
+              className="text-5xl font-bold mb-4 font-playfair text-forest-green"
             >
               Academic Programs
             </h2>
             <p
-              className="text-lg text-slate-600 mb-16 pb-4"
-              style={{ borderBottomColor: "#2563eb", borderBottomWidth: "2px" }}
+              className="text-lg text-slate-600 mb-16 pb-4 border-b-2 border-blue-accent"
             >
               Excellence in Science Education
             </p>
@@ -183,8 +192,7 @@ export default function Home() {
             ].map((program, i) => (
               <motion.div
                 key={i}
-                className="bg-white rounded-xl p-8 hover-lift"
-                style={{ borderLeftColor: "#2563eb", borderLeftWidth: "4px" }}
+                className="bg-white rounded-xl p-8 hover-lift border-l-4 border-blue-accent"
                 whileHover={{ y: -8 }}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -193,8 +201,7 @@ export default function Home() {
               >
                 <div className="text-4xl mb-4">{program.icon}</div>
                 <h3
-                  className="text-2xl font-bold mb-3"
-                  style={{ fontFamily: "'Playfair Display', serif", color: "#003319" }}
+                  className="text-2xl font-bold mb-3 font-playfair text-forest-green"
                 >
                   {program.title}
                 </h3>
@@ -215,8 +222,7 @@ export default function Home() {
             viewport={{ once: true }}
           >
             <h2
-              className="text-4xl md:text-5xl font-bold text-center mb-4"
-              style={{ color: "#003319", fontFamily: "'Playfair Display', serif" }}
+              className="text-4xl md:text-5xl font-bold text-center mb-4 font-playfair text-forest-green"
             >
               Virtual College Tour
             </h2>
@@ -243,16 +249,16 @@ export default function Home() {
               </p>
               <div className="flex flex-wrap justify-center gap-4">
                 <div className="bg-blue-50 px-4 py-2 rounded-lg">
-                  <span className="font-semibold" style={{ color: "#2563eb" }}>Campus Facilities</span>
+                  <span className="font-semibold text-blue-accent">Campus Facilities</span>
                 </div>
                 <div className="bg-green-50 px-4 py-2 rounded-lg">
-                  <span className="font-semibold" style={{ color: "#16a34a" }}>Laboratories</span>
+                  <span className="font-semibold text-green-600">Laboratories</span>
                 </div>
                 <div className="bg-yellow-50 px-4 py-2 rounded-lg">
-                  <span className="font-semibold" style={{ color: "#ca8a04" }}>Libraries</span>
+                  <span className="font-semibold text-yellow-600">Libraries</span>
                 </div>
                 <div className="bg-purple-50 px-4 py-2 rounded-lg">
-                  <span className="font-semibold" style={{ color: "#7c3aed" }}>Sports Complex</span>
+                  <span className="font-semibold text-purple-600">Sports Complex</span>
                 </div>
               </div>
             </div>
@@ -271,17 +277,16 @@ export default function Home() {
             viewport={{ once: true }}
           >
             <div className="flex items-start gap-6 mb-8">
-              <div className="p-4 rounded-full" style={{ backgroundColor: "#003319" }}>
-                <Shield style={{ color: "#2563eb" }} size={36} />
+              <div className="p-4 rounded-full bg-forest-green">
+                <Shield className="text-blue-accent" size={36} />
               </div>
               <div>
                 <h2
-                  className="text-4xl font-bold mb-2"
-                  style={{ fontFamily: "'Playfair Display', serif", color: "#003319" }}
+                  className="text-4xl font-bold mb-2 font-playfair text-forest-green"
                 >
                   Official SECCAP Admissions
                 </h2>
-                <p className="font-semibold" style={{ color: "#2563eb" }}>
+                <p className="font-semibold text-blue-accent">
                   Merit-Based Selection Process
                 </p>
               </div>
@@ -289,7 +294,7 @@ export default function Home() {
 
             <p className="text-slate-700 mb-8 text-lg leading-relaxed">
               Admissions to First Year Pre-Engineering & Pre-Medical are conducted exclusively through the
-              <strong style={{ color: "#003319" }}>
+              <strong className="text-forest-green">
                 {" "}
                 Sindh Electronic Centralized College Admission Program (SECCAP)
               </strong>
@@ -298,7 +303,7 @@ export default function Home() {
 
             <div className="bg-blue-50 border-l-4 border-blue-600 p-6 mb-10 rounded">
               <p className="text-blue-900 font-semibold flex items-start gap-3">
-                <Zap size={24} className="flex-shrink-0 mt-1" />
+                <Zap size={24} className="flex-shrink-0 mt-1 text-blue-accent" />
                 <span>
                   <strong>Education is 100% Free.</strong> All admissions are merit-based through SECCAP only. No direct
                   applications accepted.
@@ -314,9 +319,9 @@ export default function Home() {
                 { title: "Quality Faculty", desc: "Experienced educators dedicated to excellence" },
               ].map((item, i) => (
                 <div key={i} className="flex gap-3">
-                  <Award style={{ color: "#2563eb" }} className="flex-shrink-0 mt-1" size={24} />
+                  <Award className="flex-shrink-0 mt-1 text-blue-accent" size={24} />
                   <div>
-                    <h4 className="font-bold text-lg" style={{ color: "#003319" }}>
+                    <h4 className="font-bold text-lg text-forest-green">
                       {item.title}
                     </h4>
                     <p className="text-slate-600">{item.desc}</p>
@@ -343,15 +348,14 @@ export default function Home() {
 
             <div className="mt-12">
               <h3
-                className="text-2xl font-bold mb-6"
-                style={{ fontFamily: "'Playfair Display', serif", color: "#003319" }}
+                className="text-2xl font-bold mb-6 font-playfair text-forest-green"
               >
                 2025 SECCAP Cutoff Marks
               </h3>
               <div className="overflow-x-auto">
                 <table className="w-full border-collapse">
                   <thead>
-                    <tr style={{ backgroundColor: "#2563eb" }}>
+                    <tr className="bg-blue-accent">
                       <th className="px-6 py-4 text-left text-white font-bold">Program</th>
                       <th className="px-6 py-4 text-center text-white font-bold">Cutoff Marks</th>
                       <th className="px-6 py-4 text-center text-white font-bold">Percentage</th>
@@ -365,18 +369,15 @@ export default function Home() {
                     ].map((item, i) => (
                       <tr
                         key={i}
-                        style={{
-                          borderBottom: "1px solid #e5e7eb",
-                          backgroundColor: i % 2 === 0 ? "#f9fafb" : "#ffffff",
-                        }}
+                        className={`border-b ${i % 2 === 0 ? 'bg-gray-50' : 'bg-white'}`}
                       >
-                        <td className="px-6 py-4 font-semibold" style={{ color: "#003319" }}>
+                        <td className="px-6 py-4 font-semibold text-forest-green">
                           {item.program}
                         </td>
-                        <td className="px-6 py-4 text-center font-bold" style={{ color: "#2563eb", fontSize: "18px" }}>
+                        <td className="px-6 py-4 text-center font-bold text-blue-accent text-lg">
                           {item.marks}
                         </td>
-                        <td className="px-6 py-4 text-center font-semibold" style={{ color: "#16a34a" }}>
+                        <td className="px-6 py-4 text-center font-semibold text-green-600">
                           {item.percentage}
                         </td>
                       </tr>
@@ -394,14 +395,13 @@ export default function Home() {
       </section>
 
       {/* News & Social Section with Facebook Timeline */}
-      <section id="news" className="py-20 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: "#ffffff" }}>
+      <section id="news" className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-7xl mx-auto">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-4xl md:text-5xl font-bold text-center mb-4"
-            style={{ color: "#003319" }}
+            className="text-4xl md:text-5xl font-bold text-center mb-4 text-forest-green"
           >
             Latest News & Updates
           </motion.h2>
@@ -411,7 +411,7 @@ export default function Home() {
 
           {/* Facebook Timeline Carousel */}
           <div className="mb-12">
-            <h3 className="text-2xl font-bold mb-6 text-center" style={{ color: "#003319" }}>
+            <h3 className="text-2xl font-bold mb-6 text-center text-forest-green">
               Facebook Timeline
             </h3>
             <div className="relative">
@@ -425,15 +425,15 @@ export default function Home() {
                   {[
                     {
                       id: 1,
-                      date: "Jan 20, 2025",
+                      date: "Jan 20, 2024",
                       title: "New Academic Year Begins",
-                      content: "Excited to welcome our new batch of students for the 2025 academic year! Orientation week starts Monday.",
+                      content: "Excited to welcome our new batch of students for the 2024 academic year! Orientation week starts Monday.",
                       likes: "124",
                       comments: "18"
                     },
                     {
                       id: 2,
-                      date: "Jan 18, 2025",
+                      date: "Jan 18, 2024",
                       title: "Science Fair Winners",
                       content: "Congratulations to our students who won multiple awards at the regional science fair!",
                       likes: "245",
@@ -441,7 +441,7 @@ export default function Home() {
                     },
                     {
                       id: 3,
-                      date: "Jan 15, 2025",
+                      date: "Jan 15, 2024",
                       title: "Lab Equipment Upgrade",
                       content: "Our chemistry lab has received new state-of-the-art equipment for enhanced learning.",
                       likes: "189",
@@ -449,7 +449,7 @@ export default function Home() {
                     },
                     {
                       id: 4,
-                      date: "Jan 12, 2025",
+                      date: "Jan 12, 2024",
                       title: "Alumni Meet Success",
                       content: "Thank you to all alumni who joined us for the annual meet and networking event.",
                       likes: "203",
@@ -457,7 +457,7 @@ export default function Home() {
                     },
                     {
                       id: 5,
-                      date: "Jan 10, 2025",
+                      date: "Jan 10, 2024",
                       title: "Faculty Achievement",
                       content: "Our faculty member Dr. Ahmed published groundbreaking research in the International Journal of Science.",
                       likes: "176",
@@ -470,11 +470,11 @@ export default function Home() {
                           <span className="text-blue-600 font-bold">AGSC</span>
                         </div>
                         <div>
-                          <h4 className="font-bold" style={{ color: "#003319" }}>Adamjee Government Science College</h4>
+                          <h4 className="font-bold text-forest-green">Adamjee Government Science College</h4>
                           <p className="text-xs text-gray-500">{post.date}</p>
                         </div>
                       </div>
-                      <h5 className="font-bold mb-2" style={{ color: "#003319" }}>{post.title}</h5>
+                      <h5 className="font-bold mb-2 text-forest-green">{post.title}</h5>
                       <p className="text-gray-700 text-sm mb-4">{post.content}</p>
                       <div className="flex gap-4 text-xs text-gray-500">
                         <span className="flex items-center gap-1">
@@ -500,13 +500,7 @@ export default function Home() {
               href="https://facebook.com/agsckarachii"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-lg font-bold transition-all duration-300"
-              style={{
-                backgroundColor: "#2563eb",
-                color: "#ffffff",
-              }}
-              onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#1e40af")}
-              onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#2563eb")}
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-lg font-bold transition-all duration-300 bg-blue-accent text-white hover:bg-navy-dark"
             >
               <Facebook size={20} />
               Follow Our Page
@@ -516,9 +510,9 @@ export default function Home() {
       </section>
 
       {/* Foundations Section */}
-      <section id="history" className="py-20" style={{ backgroundColor: "#f9f9f5" }}>
+      <section id="history" className="py-20 bg-beige">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl md:text-4xl font-bold mb-12" style={{ color: "#1e3a8a" }}>
+          <h2 className="text-3xl md:text-4xl font-bold mb-12 text-navy-blue">
             Foundations
           </h2>
 
@@ -551,22 +545,18 @@ export default function Home() {
               >
                 <div className="flex-shrink-0">
                   <div
-                    className="w-24 h-24 rounded-full text-white flex items-center justify-center font-bold text-lg"
-                    style={{
-                      background: milestone.isHighlight
-                        ? "linear-gradient(to bottom right, #1e3a8a, #2563eb)"
-                        : "linear-gradient(to bottom right, #003319, #004d2e)",
-                      borderColor: milestone.isHighlight ? "#2563eb" : "#d4af37",
-                      borderWidth: "4px",
-                    }}
+                    className={`w-24 h-24 rounded-full text-white flex items-center justify-center font-bold text-lg border-4 ${
+                      milestone.isHighlight
+                        ? 'bg-gradient-to-br from-navy-blue to-blue-accent border-blue-accent'
+                        : 'bg-gradient-to-br from-forest-green to-[#004d2e] border-yellow-500'
+                    }`}
                   >
                     {milestone.year}
                   </div>
                 </div>
                 <div className="flex-1 pt-4">
                   <h3
-                    className="text-xl font-bold mb-3"
-                    style={{ fontFamily: "'Playfair Display', serif", color: "#003319" }}
+                    className="text-xl font-bold mb-3 font-playfair text-forest-green"
                   >
                     {milestone.headline}
                   </h3>
@@ -582,8 +572,7 @@ export default function Home() {
       <section id="contact" className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2
-            className="text-3xl md:text-4xl font-bold mb-16"
-            style={{ fontFamily: "'Playfair Display', serif", color: "#003319" }}
+            className="text-3xl md:text-4xl font-bold mb-16 font-playfair text-forest-green"
           >
             Get In Touch
           </h2>
@@ -607,13 +596,13 @@ export default function Home() {
             ].map((item, i) => (
               <motion.div
                 key={i}
-                className="bg-gradient-to-br from-[#003319] to-[#004d2e] rounded-lg p-8 text-white hover-lift"
+                className="bg-gradient-to-br from-forest-green to-[#004d2e] rounded-lg p-8 text-white hover-lift"
                 whileHover={{ scale: 1.05 }}
               >
-                <item.icon className="text-[#2563eb] mb-4" size={32} />
+                <item.icon className="text-blue-accent mb-4" size={32} />
                 <h3 className="text-xl font-bold mb-3">{item.title}</h3>
                 {item.link ? (
-                  <a href={item.link} className="text-[#2563eb] hover:text-blue-400 font-semibold">
+                  <a href={item.link} className="text-blue-accent hover:text-blue-400 font-semibold" target="_blank" rel="noopener noreferrer">
                     {item.content}
                   </a>
                 ) : item.title === "Follow Us" ? (
@@ -622,8 +611,8 @@ export default function Home() {
                       href="https://instagram.com/agsckarachi"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-[#2563eb] hover:text-blue-400"
-                      title="Instagram"
+                      className="text-blue-accent hover:text-blue-400"
+                      aria-label="Instagram"
                     >
                       <Instagram size={24} />
                     </a>
@@ -631,8 +620,8 @@ export default function Home() {
                       href="https://facebook.com/agsckarachii"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-[#2563eb] hover:text-blue-400"
-                      title="Official Facebook Page"
+                      className="text-blue-accent hover:text-blue-400"
+                      aria-label="Official Facebook Page"
                     >
                       <Facebook size={24} />
                     </a>
@@ -640,14 +629,14 @@ export default function Home() {
                       href="https://www.facebook.com/groups/1007924619869977/"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-[#2563eb] hover:text-blue-400"
-                      title="SECCAP Facebook Group"
+                      className="text-blue-accent hover:text-blue-400"
+                      aria-label="SECCAP Facebook Group"
                     >
                       <Users size={24} />
                     </a>
                   </div>
                 ) : (
-                  <p className="text-[#2563eb]">{item.content}</p>
+                  <p className="text-blue-accent">{item.content}</p>
                 )}
               </motion.div>
             ))}
@@ -655,40 +644,43 @@ export default function Home() {
 
           <div className="bg-white rounded-lg shadow-lg overflow-hidden">
             {/* Tab buttons */}
-            <div className="flex border-b" style={{ borderBottomColor: "#2563eb" }}>
+            <div className="flex border-b border-blue-accent">
               <button
                 onClick={() => setActiveTab("location")}
-                className="flex-1 py-4 font-bold transition"
-                style={{
-                  color: activeTab === "location" ? "#f9f9f5" : "#1e3a8a",
-                  backgroundColor: activeTab === "location" ? "#003319" : "transparent",
-                  borderBottomWidth: activeTab === "location" ? "3px" : "0",
-                  borderBottomColor: "#2563eb",
-                }}
+                className={`flex-1 py-4 font-bold transition ${
+                  activeTab === "location"
+                    ? "text-beige bg-forest-green border-b-4 border-blue-accent"
+                    : "text-navy-blue"
+                }`}
+                role="tab"
+                aria-selected={activeTab === "location"}
+                tabIndex={0}
               >
                 Location
               </button>
               <button
                 onClick={() => setActiveTab("transport")}
-                className="flex-1 py-4 font-bold transition"
-                style={{
-                  color: activeTab === "transport" ? "#f9f9f5" : "#1e3a8a",
-                  backgroundColor: activeTab === "transport" ? "#003319" : "transparent",
-                  borderBottomWidth: activeTab === "transport" ? "3px" : "0",
-                  borderBottomColor: "#2563eb",
-                }}
+                className={`flex-1 py-4 font-bold transition ${
+                  activeTab === "transport"
+                    ? "text-beige bg-forest-green border-b-4 border-blue-accent"
+                    : "text-navy-blue"
+                }`}
+                role="tab"
+                aria-selected={activeTab === "transport"}
+                tabIndex={0}
               >
                 Transport & Access
               </button>
               <button
                 onClick={() => setActiveTab("timings")}
-                className="flex-1 py-4 font-bold transition"
-                style={{
-                  color: activeTab === "timings" ? "#f9f9f5" : "#1e3a8a",
-                  backgroundColor: activeTab === "timings" ? "#003319" : "transparent",
-                  borderBottomWidth: activeTab === "timings" ? "3px" : "0",
-                  borderBottomColor: "#2563eb",
-                }}
+                className={`flex-1 py-4 font-bold transition ${
+                  activeTab === "timings"
+                    ? "text-beige bg-forest-green border-b-4 border-blue-accent"
+                    : "text-navy-blue"
+                }`}
+                role="tab"
+                aria-selected={activeTab === "timings"}
+                tabIndex={0}
               >
                 Timings
               </button>
@@ -702,17 +694,20 @@ export default function Home() {
                   animate={{ opacity: 1 }}
                   transition={{ duration: 0.3 }}
                   className="flex flex-col items-center"
+                  role="tabpanel"
+                  aria-labelledby="location-tab"
                 >
-                  <h3 className="text-2xl font-bold mb-6" style={{ color: "#003319" }}>
+                  <h3 className="text-2xl font-bold mb-6 text-forest-green">
                     Visit Our Campus
                   </h3>
                   <iframe
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2757.0202147398163!2d67.03369537393587!3d24.8818531444039!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3eb33e5ae41c22e3%3A0x5dc5d346d9ff179b!2sAdamjee%20Govt.%20Science%20College-%20Karachi!5e1!3m2!1sen!2s!4v1768140767645!5m2!1sen!2s"
                     width="100%"
                     height="400"
-                    style={{ border: 0, borderRadius: "8px" }}
+                    className="border-0 rounded-lg"
                     loading="lazy"
                     referrerPolicy="no-referrer-when-downgrade"
+                    title="College Location Map"
                   ></iframe>
                   <p className="mt-6 text-slate-600 text-center">
                     <strong>Address:</strong> V2JP+PGJ, Business Recorder Road, Soldier Bazaar, Garden East, Karachi
@@ -722,8 +717,14 @@ export default function Home() {
               )}
 
               {activeTab === "transport" && (
-                <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.3 }}>
-                  <h3 className="text-2xl font-bold mb-6" style={{ color: "#003319" }}>
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 0.3 }}
+                  role="tabpanel"
+                  aria-labelledby="transport-tab"
+                >
+                  <h3 className="text-2xl font-bold mb-6 text-forest-green">
                     Easy Access & Transport
                   </h3>
                   <div className="space-y-4">
@@ -742,8 +743,14 @@ export default function Home() {
               )}
 
               {activeTab === "timings" && (
-                <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.3 }}>
-                  <h3 className="text-2xl font-bold mb-6" style={{ color: "#003319" }}>
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 0.3 }}
+                  role="tabpanel"
+                  aria-labelledby="timings-tab"
+                >
+                  <h3 className="text-2xl font-bold mb-6 text-forest-green">
                     College Timings
                   </h3>
                   <div className="space-y-4">
@@ -772,19 +779,19 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer className="footer-premium py-16" style={{ backgroundColor: "#f0f0f0" }}>
+      <footer className="footer-premium py-16 bg-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-4 gap-12 mb-12 border-b border-[#2563eb] pb-12">
+          <div className="grid md:grid-cols-4 gap-12 mb-12 border-b border-blue-accent pb-12">
             <div>
-              <h4 className="text-xl font-bold mb-4" style={{ color: "#003319" }}>AGSC Karachi</h4>
-              <p className="text-sm leading-relaxed" style={{ color: "#4b5563" }}>Excellence in Science Education serving Karachi since 1961</p>
+              <h4 className="text-xl font-bold mb-4 text-forest-green">AGSC Karachi</h4>
+              <p className="text-sm leading-relaxed text-gray-600">Excellence in Science Education serving Karachi since 1961</p>
             </div>
             <div>
-              <h4 className="text-lg font-bold mb-4" style={{ color: "#003319" }}>Quick Links</h4>
+              <h4 className="text-lg font-bold mb-4 text-forest-green">Quick Links</h4>
               <ul className="space-y-2 text-sm">
                 {["Academics", "Tour", "Admissions", "History", "Contact"].map((link) => (
                   <li key={link}>
-                    <Link href={`#${link.toLowerCase()}`} className="hover:text-[#2563eb] transition" style={{ color: "#4b5563" }}>
+                    <Link href={`#${link.toLowerCase()}`} className="hover:text-blue-accent transition text-gray-600">
                       {link}
                     </Link>
                   </li>
@@ -792,28 +799,28 @@ export default function Home() {
               </ul>
             </div>
             <div>
-              <h4 className="text-lg font-bold mb-4" style={{ color: "#003319" }}>Departments</h4>
+              <h4 className="text-lg font-bold mb-4 text-forest-green">Departments</h4>
               <ul className="space-y-2 text-sm">
                 {["Pre-Engineering", "Pre-Medical", "Computer Science"].map((dept) => (
-                  <li key={dept} style={{ color: "#4b5563" }}>{dept}</li>
+                  <li key={dept} className="text-gray-600">{dept}</li>
                 ))}
               </ul>
             </div>
             <div>
-              <h4 className="text-lg font-bold mb-4" style={{ color: "#003319" }}>Contact</h4>
-              <p className="text-sm mb-2" style={{ color: "#4b5563" }}>agsckarachi@gmail.com</p>
-              <p className="text-sm" style={{ color: "#4b5563" }}>V2JP+PGJ, Business Recorder Road, Soldier Bazaar, Garden East, Karachi</p>
+              <h4 className="text-lg font-bold mb-4 text-forest-green">Contact</h4>
+              <p className="text-sm mb-2 text-gray-600">agsckarachi@gmail.com</p>
+              <p className="text-sm text-gray-600">V2JP+PGJ, Business Recorder Road, Soldier Bazaar, Garden East, Karachi</p>
             </div>
           </div>
-          <div className="text-center text-sm text-[#003319] border-t border-[#2563eb] pt-8">
-            <p>&copy; 2026 Adamjee Government Science College. All rights reserved.</p>
+          <div className="text-center text-sm text-forest-green border-t border-blue-accent pt-8">
+            <p>&copy; {new Date().getFullYear()} Adamjee Government Science College. All rights reserved.</p>
             <p className="mt-4">
               Designed & Developed by{" "}
               <a
                 href="https://mansoor--ahmed.vercel.app/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-[#1e3a8a] hover:text-blue-700 font-semibold"
+                className="text-navy-blue hover:text-blue-700 font-semibold"
               >
                 Mansoor Ahmed
               </a>
@@ -821,6 +828,7 @@ export default function Home() {
           </div>
         </div>
       </footer>
+      </main>
     </div>
   )
 }
