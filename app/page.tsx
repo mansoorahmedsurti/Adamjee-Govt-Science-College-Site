@@ -72,7 +72,7 @@ export default function Home() {
               <Image src="/images/agsc.png" alt="AGSC Logo" width={48} height={48} className="w-12 h-12" />
             </div>
             <div className="hidden md:flex gap-8">
-              {["Home", "Academics", "Admissions", "History", "Contact"].map((item) => (
+              {["Home", "Academics", "Tour", "Admissions", "History", "Contact"].map((item) => (
                 <Link
                   key={item}
                   href={`#${item.toLowerCase()}`}
@@ -201,6 +201,61 @@ export default function Home() {
                 <p className="text-slate-600 mb-6">{program.subjects}</p>
               </motion.div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* College Tour Section */}
+      <section id="tour" className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+          >
+            <h2
+              className="text-4xl md:text-5xl font-bold text-center mb-4"
+              style={{ color: "#003319", fontFamily: "'Playfair Display', serif" }}
+            >
+              Virtual College Tour
+            </h2>
+            <p className="text-center text-gray-600 mb-12 max-w-3xl mx-auto">
+              Experience the vibrant campus life and state-of-the-art facilities of Adamjee Government Science College through our virtual tour
+            </p>
+          </motion.div>
+
+          <div className="flex flex-col items-center">
+            <div className="w-full max-w-4xl aspect-video bg-black rounded-xl overflow-hidden shadow-2xl">
+              <video
+                controls
+                className="w-full h-full object-cover"
+                poster="/images/agscpics.jpg"
+              >
+                <source src="/videos/college-tour.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+            </div>
+
+            <div className="mt-8 text-center">
+              <p className="text-gray-600 mb-6">
+                Explore our modern classrooms, laboratories, library, and recreational facilities
+              </p>
+              <div className="flex flex-wrap justify-center gap-4">
+                <div className="bg-blue-50 px-4 py-2 rounded-lg">
+                  <span className="font-semibold" style={{ color: "#2563eb" }}>Campus Facilities</span>
+                </div>
+                <div className="bg-green-50 px-4 py-2 rounded-lg">
+                  <span className="font-semibold" style={{ color: "#16a34a" }}>Laboratories</span>
+                </div>
+                <div className="bg-yellow-50 px-4 py-2 rounded-lg">
+                  <span className="font-semibold" style={{ color: "#ca8a04" }}>Libraries</span>
+                </div>
+                <div className="bg-purple-50 px-4 py-2 rounded-lg">
+                  <span className="font-semibold" style={{ color: "#7c3aed" }}>Sports Complex</span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -670,7 +725,7 @@ export default function Home() {
             <div>
               <h4 className="text-lg font-bold mb-4" style={{ color: "#003319" }}>Quick Links</h4>
               <ul className="space-y-2 text-sm">
-                {["Academics", "Admissions", "History", "Contact"].map((link) => (
+                {["Academics", "Tour", "Admissions", "History", "Contact"].map((link) => (
                   <li key={link}>
                     <Link href={`#${link.toLowerCase()}`} className="hover:text-[#2563eb] transition" style={{ color: "#4b5563" }}>
                       {link}
