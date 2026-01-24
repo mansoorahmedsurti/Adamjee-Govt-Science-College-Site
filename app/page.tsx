@@ -418,18 +418,6 @@ export default function Home() {
             <FacebookFeed />
           </div>
 
-          {/* Call to action */}
-          <div className="mt-12 text-center">
-            <a
-              href="https://facebook.com/agsckarachii"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-lg font-bold transition-all duration-300 bg-blue-accent text-white hover:bg-navy-dark"
-            >
-              <Facebook size={20} />
-              Follow Our Page
-            </a>
-          </div>
         </div>
       </section>
 
@@ -733,6 +721,8 @@ export default function Home() {
             <div>
               <h4 className="text-lg font-bold mb-4">Contact</h4>
               <p className="text-sm mb-2">agsckarachi@gmail.com</p>
+              <p className="text-sm mb-2">Phone: 02199215689</p>
+              <p className="text-sm mb-2">WhatsApp: +92 333 2388124</p>
               <p className="text-sm">V2JP+PGJ, Business Recorder Road, Soldier Bazaar, Garden East, Karachi</p>
             </div>
           </div>
