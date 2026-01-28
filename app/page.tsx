@@ -144,7 +144,7 @@ export default function Home() {
           transition={{ duration: 0.8 }}
           className="relative z-10 text-center text-white max-w-4xl mx-auto px-4"
         >
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 font-playfair">
+          <h1 className="text-5xl md:text-7xl font-bold mb-6 font-inter">
             Adamjee Government Science College
           </h1>
           <p className="text-xl md:text-2xl mb-8">Excellence in Science Education Since 1961</p>
@@ -201,7 +201,7 @@ export default function Home() {
             viewport={{ once: true }}
           >
             <h2
-              className="text-5xl font-bold mb-4 font-playfair text-forest-green"
+              className="text-5xl font-bold mb-4 font-inter text-forest-green"
             >
               Academic Programs
             </h2>
@@ -229,7 +229,7 @@ export default function Home() {
               >
                 <div className="text-4xl mb-4">{program.icon}</div>
                 <h3
-                  className="text-2xl font-bold mb-3 font-playfair text-forest-green"
+                  className="text-2xl font-bold mb-3 font-inter text-forest-green"
                 >
                   {program.title}
                 </h3>
@@ -250,7 +250,7 @@ export default function Home() {
             viewport={{ once: true }}
           >
             <h2
-              className="text-4xl md:text-5xl font-bold text-center mb-4 font-playfair text-forest-green"
+              className="text-4xl md:text-5xl font-bold text-center mb-4 font-inter text-forest-green"
             >
               Virtual College Tour
             </h2>
@@ -310,7 +310,7 @@ export default function Home() {
               </div>
               <div>
                 <h2
-                  className="text-4xl font-bold mb-2 font-playfair text-forest-green"
+                  className="text-4xl font-bold mb-2 font-inter text-forest-green"
                 >
                   Official SECCAP Admissions
                 </h2>
@@ -376,7 +376,7 @@ export default function Home() {
 
             <div className="mt-12">
               <h3
-                className="text-2xl font-bold mb-6 font-playfair text-forest-green"
+                className="text-2xl font-bold mb-6 font-inter text-forest-green"
               >
                 2025 SECCAP Cutoff Marks
               </h3>
@@ -495,7 +495,7 @@ export default function Home() {
                 </div>
                 <div className="flex-1 pt-4">
                   <h3
-                    className="text-xl font-bold mb-3 font-playfair text-forest-green"
+                    className="text-xl font-bold mb-3 font-inter text-forest-green"
                   >
                     {milestone.headline}
                   </h3>
@@ -511,7 +511,7 @@ export default function Home() {
       <section id="contact" className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2
-            className="text-3xl md:text-4xl font-bold mb-16 font-playfair text-forest-green"
+            className="text-3xl md:text-4xl font-bold mb-16 font-inter text-forest-green"
           >
             Get In Touch
           </h2>

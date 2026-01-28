@@ -23,7 +23,10 @@
       "Bash(git commit -m \"feat: Update Facebook feed and footer contacts\n\n- Remove horizontal scrolling from Facebook feed\n- Center the Facebook timeline component\n- Remove follow button from Facebook section\n- Add phone number and WhatsApp to footer contact section\n- Simplify Facebook feed component structure\")",
       "Bash(git commit -m \"feat: Update hero section text\n\n- Change ''Highest Merit Science College in Sindh'' to ''Highest Merit Science College in Karachi''\")",
       "Bash(dir /s styles)",
-      "Bash(dir /s *.tsx *.ts *.jsx *.js)"
+      "Bash(dir /s *.tsx *.ts *.jsx *.js)",
+      "Bash(git commit -m \"$\\(cat <<''EOF''\nfeat: Implement mobile menu functionality\n\n- Add state management for mobile menu toggle\n- Create sliding mobile menu with proper animations\n- Update mobile menu button to toggle menu state\n- Add close functionality when clicking outside menu or on menu items\n- Ensure responsive design maintains desktop navigation for larger screens\n\nCo-Authored-By: Claude Sonnet 4.5 <noreply@anthropic.com>\nEOF\n\\)\")",
+      "Bash(npm install @vercel/speed-insights)",
+      "Bash(git add app/page.tsx)"
     ]
   }
 }

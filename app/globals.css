@@ -133,7 +133,7 @@
 .text-blue-accent { color: var(--color-blue-accent); }
 .text-forest-green { color: var(--color-forest-green); }
 .bg-beige { background-color: var(--color-beige); }
-.font-playfair { font-family: "Playfair Display", serif; }
+.font-inter { font-family: "Inter", sans-serif; }
 
 * {
   border-color: oklch(0.922 0 0);
@@ -148,14 +148,14 @@
   }
 }
 
-/* Serif headings for prestige */
+/* Sans-serif headings for consistency */
 h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
-  font-family: "Playfair Display", serif;
+  font-family: "Inter", sans-serif;
   font-weight: 700;
 }
 
@@ -303,7 +303,7 @@ body::before {
 
 .footer-premium h4 {
   color: white;
-  font-family: "Playfair Display", serif;
+  font-family: "Inter", sans-serif;
 }
 
 /* Navbar with blue theme */
