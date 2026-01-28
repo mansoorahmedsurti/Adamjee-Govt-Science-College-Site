@@ -164,26 +164,26 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             <div className="counter-card hover-lift">
-              <div className="text-3xl md:text-4xl font-bold text-blue-accent">
-                <AnimatedCounter end={1500} />+
+              <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-blue-accent">
+                <AnimatedCounter end={1500} /><span className="text-lg sm:text-xl md:text-2xl ml-1">+</span>
               </div>
               <div className="text-gray-600 mt-2">Students Enrolled</div>
             </div>
             <div className="counter-card hover-lift">
-              <div className="text-3xl md:text-4xl font-bold text-blue-accent">
-                <AnimatedCounter end={62} />+
+              <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-blue-accent">
+                <AnimatedCounter end={62} /><span className="text-lg sm:text-xl md:text-2xl ml-1">+</span>
               </div>
               <div className="text-gray-600 mt-2">Years of Excellence</div>
             </div>
             <div className="counter-card hover-lift">
-              <div className="text-3xl md:text-4xl font-bold text-blue-accent">
-                <AnimatedCounter end={25000} />+
+              <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-blue-accent">
+                <AnimatedCounter end={25000} /><span className="text-lg sm:text-xl md:text-2xl ml-1">+</span>
               </div>
               <div className="text-gray-600 mt-2">Alumni Worldwide</div>
             </div>
             <div className="counter-card hover-lift">
-              <div className="text-3xl md:text-4xl font-bold text-blue-accent">
-                <AnimatedCounter end={80} />+
+              <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-blue-accent">
+                <AnimatedCounter end={80} /><span className="text-lg sm:text-xl md:text-2xl ml-1">+</span>
               </div>
               <div className="text-gray-600 mt-2">Faculty Members</div>
             </div>
