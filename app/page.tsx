@@ -7,7 +7,17 @@ import { SpeedInsights } from "@vercel/speed-insights/next"
 import { Shield, Zap, Users, MapPin, Mail, Instagram, Facebook, Award, Phone, MessageCircle } from "lucide-react"
 import { useEffect, useState, useRef } from "react"
 import { motion } from "framer-motion"
-import FacebookFeed from "@/components/FacebookFeed"
+import dynamic from "next/dynamic"
+
+// Dynamically import FacebookFeed with no SSR to improve initial load
+const FacebookFeed = dynamic(() => import("@/components/FacebookFeed"), {
+  loading: () => (
+    <div className="flex justify-center w-full h-96 bg-gray-100 rounded-lg flex items-center justify-center">
+      <div className="text-gray-500">Loading Facebook feed...</div>
+    </div>
+  ),
+  ssr: false
+});
 
 function AnimatedCounter({ end, duration = 2 }: { end: number; duration?: number }) {
   const [count, setCount] = useState(0)
@@ -42,6 +52,64 @@ function AnimatedCounter({ end, duration = 2 }: { end: number; duration?: number
   }, [end, duration])
 
   return <span ref={ref}>{count.toLocaleString()}</span>
+}
+
+function LazyMap() {
+  const [isVisible, setIsVisible] = useState(false);
+  const mapRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.unobserve(entry.target);
+        }
+      },
+      { threshold: 0.1, rootMargin: '50px' }
+    );
+
+    if (mapRef.current) {
+      observer.observe(mapRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <motion.div
+      ref={mapRef}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.3 }}
+      className="flex flex-col items-center w-full"
+      role="tabpanel"
+      aria-labelledby="location-tab"
+    >
+      <h3 className="text-xl sm:text-2xl font-bold mb-6 text-forest-green">
+        Visit Our Campus
+      </h3>
+      {isVisible ? (
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2757.0202147398163!2d67.03369537393587!3d24.8818531444039!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3eb33e5ae41c22e3%3A0x5dc5d346d9ff179b!2sAdamjee%20Govt.%20Science%20College-%20Karachi!5e1!3m2!1sen!2s!4v1768140767645!5m2!1sen!2s"
+          width="100%"
+          height="400"
+          className="border-0 rounded-lg"
+          loading="lazy"
+          referrerPolicy="no-referrer-when-downgrade"
+          title="College Location Map"
+        ></iframe>
+      ) : (
+        <div className="w-full h-96 bg-gray-200 rounded-lg flex items-center justify-center">
+          <div className="text-gray-500">Loading map...</div>
+        </div>
+      )}
+      <p className="mt-6 text-slate-600 text-center">
+        <strong>Address:</strong> V2JP+PGJ, Business Recorder Road, Soldier Bazaar, Garden East, Karachi
+      </p>
+      <p className="mt-3 text-sm text-slate-500 text-center">DDO Code: KQ2172 | Boys College</p>
+    </motion.div>
+  );
 }
 
 export default function Home() {
@@ -84,21 +152,28 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center gap-3">
-              <Image src="/images/agsc.png" alt="Adamjee Government Science College Logo" width={48} height={48} className="w-12 h-12" />
+              <Image
+                src="/images/agsc.png"
+                alt="Adamjee Government Science College Logo"
+                width={48}
+                height={48}
+                className="w-12 h-12"
+                priority
+              />
             </div>
             <div className="hidden md:flex gap-8">
               {["Home", "Academics", "Tour", "Admissions", "History", "Contact"].map((item) => (
                 <Link
                   key={item}
                   href={`#${item.toLowerCase()}`}
-                  className="font-medium text-sm transition duration-300 text-navy-blue hover:text-blue-accent"
+                  className="font-medium text-sm transition-colors duration-200 text-navy-blue hover:text-blue-accent focus:outline-none focus:ring-2 focus:ring-blue-accent focus:ring-offset-2 rounded"
                 >
                   {item}
                 </Link>
               ))}
             </div>
             <button
-              className="md:hidden w-12 h-12 rounded-full font-medium transition duration-300 flex items-center justify-center bg-blue-accent text-white hover:bg-navy-dark focus:outline-none focus:ring-2 focus:ring-blue-accent focus:ring-offset-2"
+              className="md:hidden w-12 h-12 rounded-full font-medium transition-colors duration-200 flex items-center justify-center bg-blue-accent text-white hover:bg-navy-dark focus:outline-none focus:ring-2 focus:ring-blue-accent focus:ring-offset-2"
               aria-label="Mobile menu"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             >
@@ -132,7 +207,28 @@ export default function Home() {
 
       {/* Hero Section */}
       <section id="home" className="relative h-screen overflow-hidden flex items-center justify-center">
-        <Image src="/images/agscpics.jpg" alt="Adamjee Government Science College Campus" fill className="object-cover absolute inset-0" priority />
+        {/* Preload critical image dimensions to avoid layout shift */}
+        <div className="absolute inset-0 overflow-hidden">
+          <img
+            src="/images/agscpics.jpg"
+            alt=""
+            className="absolute inset-0 w-full h-full object-cover opacity-0 pointer-events-none"
+            style={{maxWidth: '100%', maxHeight: '100%'}}
+            loading="eager"
+            width="1920"
+            height="1080"
+          />
+        </div>
+        <Image
+          src="/images/agscpics.jpg"
+          alt="Adamjee Government Science College Campus"
+          fill
+          className="object-cover absolute inset-0"
+          priority
+          sizes="100vw"
+          placeholder="blur"
+          blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEASABIAAD/2wBDAAEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQH/2wBDAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQH/wAARCAADAAQDAREAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwA/AKqL//Z"
+        />
 
         {/* Dark overlay */}
         <div className="absolute inset-0 bg-[#003319]/50"></div>
@@ -141,7 +237,7 @@ export default function Home() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
           className="relative z-10 text-center text-white max-w-4xl mx-auto px-4"
         >
           <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold mb-6 font-inter">
@@ -265,6 +361,7 @@ export default function Home() {
                 controls
                 className="w-full h-full object-contain"
                 poster="/images/agscpics.jpg"
+                preload="metadata"
               >
                 <source src="/videos/college-tour.mp4" type="video/mp4" />
                 Your browser does not support the video tag.
@@ -628,31 +725,7 @@ export default function Home() {
             {/* Tab content */}
             <div className="p-8">
               {activeTab === "location" && (
-                <motion.div
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ duration: 0.3 }}
-                  className="flex flex-col items-center"
-                  role="tabpanel"
-                  aria-labelledby="location-tab"
-                >
-                  <h3 className="text-xl sm:text-2xl font-bold mb-6 text-forest-green">
-                    Visit Our Campus
-                  </h3>
-                  <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2757.0202147398163!2d67.03369537393587!3d24.8818531444039!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3eb33e5ae41c22e3%3A0x5dc5d346d9ff179b!2sAdamjee%20Govt.%20Science%20College-%20Karachi!5e1!3m2!1sen!2s!4v1768140767645!5m2!1sen!2s"
-                    width="100%"
-                    height="400"
-                    className="border-0 rounded-lg"
-                    loading="lazy"
-                    referrerPolicy="no-referrer-when-downgrade"
-                    title="College Location Map"
-                  ></iframe>
-                  <p className="mt-6 text-slate-600 text-center">
-                    <strong>Address:</strong> V2JP+PGJ, Business Recorder Road, Soldier Bazaar, Garden East, Karachi
-                  </p>
-                  <p className="mt-3 text-sm text-slate-500 text-center">DDO Code: KQ2172 | Boys College</p>
-                </motion.div>
+                <LazyMap />
               )}
 
               {activeTab === "transport" && (

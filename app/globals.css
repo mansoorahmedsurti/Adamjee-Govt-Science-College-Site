@@ -120,6 +120,11 @@
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
 
+  /* Font variables */
+  --font-geist: 'Geist', sans-serif;
+  --font-geist-mono: 'GeistMono', monospace;
+  --font-inter: 'Inter', sans-serif;
+
   /* Custom color classes */
   --color-navy-blue: var(--color-navy-blue);
   --color-navy-dark: var(--color-navy-dark);
@@ -144,7 +149,7 @@
   body {
     background-color: #f9f9f5;
     color: #1f2937;
-    font-family: "Inter", sans-serif;
+    font-family: var(--font-inter), sans-serif;
   }
 }
 
@@ -155,7 +160,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Inter", sans-serif;
+  font-family: var(--font-inter), sans-serif;
   font-weight: 700;
 }
 
