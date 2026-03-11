@@ -1,0 +1,30 @@
+import SECCAPAdmissions from '@/components/SECCAPAdmissions';
+import Navbar from '@/components/Navbar';
+import Footer from '@/components/Footer';
+
+export default function AdmissionsPage() {
+  return (
+    <div className="bg-beige">
+      {/* Skip link for accessibility */}
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-blue-accent focus:text-white focus:rounded-lg focus:shadow-lg"
+      >
+        Skip to main content
+      </a>
+
+      <Navbar />
+      <main id="main-content">
+        <section className="py-20 bg-beige">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-12 text-navy-blue text-center">
+              Admissions
+            </h2>
+            <SECCAPAdmissions />
+          </div>
+        </section>
+      </main>
+      <Footer />
+    </div>
+  );
+}
