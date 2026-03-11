@@ -4,7 +4,7 @@ import Link from "next/link"
 import Image from "next/image"
 import { Analytics } from "@vercel/analytics/next"
 import { SpeedInsights } from "@vercel/speed-insights/next"
-import { Shield, Zap, Users, MapPin, Mail, Instagram, Facebook, Award, Phone, MessageCircle } from "lucide-react"
+import { Shield, Zap, Users, MapPin, Mail, Instagram, Facebook, Award, Phone, MessageCircle, ChevronDown } from "lucide-react"
 import { useEffect, useState, useRef } from "react"
 import { motion } from "framer-motion"
 import dynamic from "next/dynamic"
@@ -12,7 +12,7 @@ import dynamic from "next/dynamic"
 // Dynamically import FacebookFeed with no SSR to improve initial load
 const FacebookFeed = dynamic(() => import("@/components/FacebookFeed"), {
   loading: () => (
-    <div className="flex justify-center w-full h-96 bg-gray-100 rounded-lg flex items-center justify-center">
+    <div className="flex justify-center w-full h-96 bg-gray-100 rounded-lg items-center">
       <div className="text-gray-500">Loading Facebook feed...</div>
     </div>
   ),
@@ -113,14 +113,7 @@ function LazyMap() {
 }
 
 export default function Home() {
-  const newsItems = [
-    { date: "Dec 2024", title: "SECCAP Merit List Released", icon: "📋" },
-    { date: "Dec 2024", title: "HSC Part 2 Results Announced", icon: "📊" },
-    { date: "Nov 2024", title: "Annual Sports Week 2024", icon: "⚽" },
-    { date: "Nov 2024", title: "Science Fair - Student Projects", icon: "🔬" },
-    { date: "Oct 2024", title: "New Computer Lab Inauguration", icon: "💻" },
-    { date: "Sep 2024", title: "Orientation Week 2024", icon: "🎓" },
-  ]
+  const newsItems = []
 
   const [newsIndex, setNewsIndex] = useState(0)
   const [activeTab, setActiveTab] = useState("location")
@@ -148,7 +141,7 @@ export default function Home() {
       <SpeedInsights />
 
       {/* Navigation */}
-      <nav className="sticky top-0 z-50 navbar-premium">
+      <nav className="sticky top-0 z-50 navbar-premium bg-white shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center gap-3">
@@ -161,26 +154,54 @@ export default function Home() {
                 priority
               />
             </div>
-            <div className="hidden md:flex gap-8">
-              {["Home", "Academics", "Tour", "Admissions", "History", "Contact"].map((item) => (
-                <Link
-                  key={item}
-                  href={`#${item.toLowerCase()}`}
-                  className="font-medium text-sm transition-colors duration-200 text-navy-blue hover:text-blue-accent focus:outline-none focus:ring-2 focus:ring-blue-accent focus:ring-offset-2 rounded"
-                >
-                  {item}
-                </Link>
-              ))}
-              <a
-                href="https://drive.google.com/drive/folders/1JbR11sv3I1avlLajkJXFzMqgum21snNE"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="font-medium text-sm transition-colors duration-200 text-white bg-blue-accent hover:bg-navy-dark px-4 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-accent focus:ring-offset-2 whitespace-nowrap"
-              >
-                <span className="hidden sm:inline">Preliminary Examinations Papers 2026</span>
-                <span className="sm:hidden">Prelim Papers 2026</span>
-              </a>
+            
+            {/* Desktop Menu */}
+            <div className="hidden md:flex gap-8 items-center">
+              {["Home", "Academics", "Tour", "Admissions", "History", "Contact"].map((item) => {
+                if (item === "Academics") {
+                  return (
+                    <div key={item} className="relative group py-4">
+                      <Link
+                        href="#academics"
+                        className="font-medium text-sm transition-colors duration-200 text-navy-blue hover:text-blue-accent focus:outline-none focus:ring-2 focus:ring-blue-accent focus:ring-offset-2 rounded flex items-center gap-1"
+                      >
+                        {item}
+                        <ChevronDown size={14} className="text-navy-blue group-hover:text-blue-accent transition-colors" />
+                      </Link>
+                      {/* Dropdown Menu */}
+                      <div className="absolute left-0 top-full pt-1 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                        <div className="bg-white rounded-md shadow-lg border border-gray-100 overflow-hidden w-64 flex flex-col">
+                          <a
+                            href="https://drive.google.com/drive/folders/1JbR11sv3I1avlLajkJXFzMqgum21snNE"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="px-4 py-3 text-sm text-blue-accent hover:bg-blue-50 font-medium border-b border-gray-50 transition-colors"
+                          >
+                            Prelim Papers 2026
+                          </a>
+                          <Link
+                            href="#academics"
+                            className="px-4 py-3 text-sm text-navy-blue hover:bg-gray-50 transition-colors"
+                          >
+                            Programs Overview
+                          </Link>
+                        </div>
+                      </div>
+                    </div>
+                  )
+                }
+                return (
+                  <Link
+                    key={item}
+                    href={`#${item.toLowerCase()}`}
+                    className="font-medium text-sm transition-colors duration-200 text-navy-blue hover:text-blue-accent focus:outline-none focus:ring-2 focus:ring-blue-accent focus:ring-offset-2 rounded"
+                  >
+                    {item}
+                  </Link>
+                )
+              })}
             </div>
+
             <button
               className="md:hidden w-12 h-12 rounded-full font-medium transition-colors duration-200 flex items-center justify-center bg-blue-accent text-white hover:bg-navy-dark focus:outline-none focus:ring-2 focus:ring-blue-accent focus:ring-offset-2"
               aria-label="Mobile menu"
@@ -197,32 +218,38 @@ export default function Home() {
            onClick={() => setIsMobileMenuOpen(false)}>
         <div className={`absolute top-16 left-0 right-0 w-full bg-white shadow-xl transform transition-transform duration-300 ease-in-out ${isMobileMenuOpen ? 'translate-y-0' : '-translate-y-full'}`}
              onClick={(e) => e.stopPropagation()}>
-          <div className="flex flex-col p-4 space-y-4">
+          <div className="flex flex-col p-4 space-y-2">
             {["Home", "Academics", "Tour", "Admissions", "History", "Contact"].map((item) => (
-              <Link
-                key={item}
-                href={`#${item.toLowerCase()}`}
-                className="font-medium text-base py-3 px-4 transition duration-300 text-navy-blue hover:bg-blue-accent hover:text-white rounded"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                {item}
-              </Link>
+              <div key={item} className="flex flex-col">
+                <Link
+                  href={`#${item.toLowerCase()}`}
+                  className="font-medium text-base py-3 px-4 transition duration-300 text-navy-blue hover:bg-blue-accent hover:text-white rounded"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  {item}
+                </Link>
+                
+                {/* Mobile Dropdown Items */}
+                {item === "Academics" && (
+                  <div className="flex flex-col ml-4 pl-4 border-l-2 border-gray-100 mt-1 mb-2 space-y-1">
+                    <a
+                      href="https://drive.google.com/drive/folders/1JbR11sv3I1avlLajkJXFzMqgum21snNE"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="font-medium text-sm py-2 px-3 transition duration-300 text-blue-accent hover:bg-blue-50 rounded"
+                      onClick={() => setIsMobileMenuOpen(false)}
+                    >
+                      ↳ Prelim Papers 2026
+                    </a>
+                  </div>
+                )}
+              </div>
             ))}
-            <a
-              href="https://drive.google.com/drive/folders/1JbR11sv3I1avlLajkJXFzMqgum21snNE"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="font-medium text-base py-3 px-4 transition duration-300 text-white bg-blue-accent hover:bg-navy-dark rounded"
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              Prelim Papers 2026
-            </a>
           </div>
         </div>
       </div>
 
       <main id="main-content">
-
       {/* Hero Section */}
       <section id="home" className="relative h-screen overflow-hidden flex items-center justify-center">
         {/* Preload critical image dimensions to avoid layout shift */}
@@ -269,7 +296,6 @@ export default function Home() {
               Highest Merit Science College in Karachi
             </span>
           </div>
-          {/* Removed SECCAP button */}
         </motion.div>
       </section>
 
@@ -305,7 +331,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Academics Section */}
+{/* Academics Section */}
       <section id="academics" className="py-20 bg-beige">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
@@ -314,14 +340,10 @@ export default function Home() {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <h2
-              className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 font-inter text-forest-green"
-            >
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 font-inter text-forest-green">
               Academic Programs
             </h2>
-            <p
-              className="text-lg text-slate-600 mb-16 pb-4 border-b-2 border-blue-accent"
-            >
+            <p className="text-lg text-slate-600 mb-16 pb-4 border-b-2 border-blue-accent">
               Excellence in Science Education
             </p>
           </motion.div>
@@ -342,17 +364,34 @@ export default function Home() {
                 viewport={{ once: true }}
               >
                 <div className="text-4xl mb-4">{program.icon}</div>
-                <h3
-                  className="text-xl sm:text-2xl font-bold mb-3 font-inter text-forest-green"
-                >
+                <h3 className="text-xl sm:text-2xl font-bold mb-3 font-inter text-forest-green">
                   {program.title}
                 </h3>
                 <p className="text-slate-600 mb-6">{program.subjects}</p>
               </motion.div>
             ))}
           </div>
+
+          <motion.div 
+            className="mt-12 flex justify-center"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            viewport={{ once: true }}
+          >
+            <a
+              href="https://drive.google.com/drive/folders/1JbR11sv3I1avlLajkJXFzMqgum21snNE"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-semibold text-base transition-colors duration-200 text-white bg-blue-accent hover:bg-navy-dark px-8 py-4 rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-blue-accent focus:ring-offset-2 whitespace-nowrap"
+            >
+              <span className="hidden sm:inline">Access Preliminary Examinations Papers 2026</span>
+              <span className="sm:hidden">Prelim Papers 2026</span>
+            </a>
+          </motion.div>
+
         </div>
-      </section>
+      </section>  
 
       {/* College Tour Section */}
       <section id="tour" className="py-20 bg-white">
@@ -474,7 +513,7 @@ export default function Home() {
             </div>
 
             <div className="grid md:grid-cols-2 gap-6 mt-12">
-              <div className="bg-green-50 border-l-4 border-green-600 p-6 rounded">
+              <div className="bg-green-50 border-l-4 border-green-600 p-4 rounded h-13.5 flex items-center">
                 <p className="text-green-900 font-semibold">
                   <strong>DDO Code:</strong> KQ2172
                 </p>
@@ -483,7 +522,7 @@ export default function Home() {
                 href="https://seccap.dgcs.gos.pk/#/about-us"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-premium"
+                className="btn-premium hover:bg-navy-dark font-semibold"
               >
                 View SECCAP Admission Policy
               </a>
@@ -524,7 +563,8 @@ export default function Home() {
                           {item.percentage}
                         </td>
                       </tr>
-                    ))}
+                    )
+                    )}
                   </tbody>
                 </table>
               </div>
@@ -845,7 +885,7 @@ export default function Home() {
             </div>
           </div>
           <div className="text-center text-sm border-t border-blue-accent pt-8">
-            <p>&copy; {new Date().getFullYear()} Adamjee Government Science College. All rights reserved.</p>
+            <p>© {new Date().getFullYear()} Adamjee Government Science College. All rights reserved.</p>
             <p className="mt-4">
               Designed & Developed by{" "}
               <a
