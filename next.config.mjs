@@ -2,6 +2,7 @@
 const nextConfig = {
   experimental: {
     typedRoutes: true,
+    turbopack: {},
   },
   typescript: {
     ignoreBuildErrors: false, // Fix: Enable TypeScript checking
