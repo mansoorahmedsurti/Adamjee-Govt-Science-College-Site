@@ -26,7 +26,6 @@ const nextConfig = {
       },
     ],
     formats: ['image/webp', 'image/avif'], // Enable modern image formats
-    maximumCacheFileSize: 10 * 1024 * 1024, // Increase cache size to 10MB
   },
   // Enable compression
   compress: true,
@@ -64,8 +63,6 @@ const nextConfig = {
   },
   // Enable static optimization where possible
   output: 'standalone',
-  // Enable SWC minification
-  swcMinify: true,
   // Optimize page loading
   trailingSlash: false,
   // Enable experimental features

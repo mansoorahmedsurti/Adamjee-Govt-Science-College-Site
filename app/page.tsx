@@ -171,6 +171,15 @@ export default function Home() {
                   {item}
                 </Link>
               ))}
+              <a
+                href="https://drive.google.com/drive/folders/1JbR11sv3I1avlLajkJXFzMqgum21snNE"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-medium text-sm transition-colors duration-200 text-white bg-blue-accent hover:bg-navy-dark px-4 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-accent focus:ring-offset-2 whitespace-nowrap"
+              >
+                <span className="hidden sm:inline">Preliminary Examinations Papers 2026</span>
+                <span className="sm:hidden">Prelim Papers 2026</span>
+              </a>
             </div>
             <button
               className="md:hidden w-12 h-12 rounded-full font-medium transition-colors duration-200 flex items-center justify-center bg-blue-accent text-white hover:bg-navy-dark focus:outline-none focus:ring-2 focus:ring-blue-accent focus:ring-offset-2"
@@ -199,6 +208,15 @@ export default function Home() {
                 {item}
               </Link>
             ))}
+            <a
+              href="https://drive.google.com/drive/folders/1JbR11sv3I1avlLajkJXFzMqgum21snNE"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-medium text-base py-3 px-4 transition duration-300 text-white bg-blue-accent hover:bg-navy-dark rounded"
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              Prelim Papers 2026
+            </a>
           </div>
         </div>
       </div>
