@@ -2,8 +2,9 @@
 const nextConfig = {
   experimental: {
     typedRoutes: true,
-    turbopack: {},
+    webpackBuildWorker: false, // Explicitly disable webpack build worker to prevent conflicts
   },
+  reactStrictMode: true,
   typescript: {
     ignoreBuildErrors: false, // Fix: Enable TypeScript checking
   },
