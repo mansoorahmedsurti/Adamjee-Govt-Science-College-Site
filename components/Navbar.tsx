@@ -71,15 +71,62 @@ export default function Navbar() {
                     </div>
                   );
                 }
-                return (
-                  <Link
-                    key={item}
-                    href={item === 'Home' ? '/' : `/${item.toLowerCase()}`}
-                    className="font-medium text-sm transition-colors duration-200 text-navy-blue hover:text-blue-accent focus:outline-none focus:ring-2 focus:ring-blue-accent focus:ring-offset-2 rounded"
-                  >
-                    {item}
-                  </Link>
-                );
+                if (item === 'Home') {
+                  return (
+                    <Link
+                      key={item}
+                      href="/"
+                      className="font-medium text-sm transition-colors duration-200 text-navy-blue hover:text-blue-accent focus:outline-none focus:ring-2 focus:ring-blue-accent focus:ring-offset-2 rounded"
+                    >
+                      {item}
+                    </Link>
+                  );
+                }
+                if (item === 'Tour') {
+                  return (
+                    <Link
+                      key={item}
+                      href="/#tour"
+                      className="font-medium text-sm transition-colors duration-200 text-navy-blue hover:text-blue-accent focus:outline-none focus:ring-2 focus:ring-blue-accent focus:ring-offset-2 rounded"
+                    >
+                      {item}
+                    </Link>
+                  );
+                }
+                if (item === 'Contact') {
+                  return (
+                    <Link
+                      key={item}
+                      href="/#contact"
+                      className="font-medium text-sm transition-colors duration-200 text-navy-blue hover:text-blue-accent focus:outline-none focus:ring-2 focus:ring-blue-accent focus:ring-offset-2 rounded"
+                    >
+                      {item}
+                    </Link>
+                  );
+                }
+                if (item === 'Admissions') {
+                  return (
+                    <Link
+                      key={item}
+                      href="/admissions"
+                      className="font-medium text-sm transition-colors duration-200 text-navy-blue hover:text-blue-accent focus:outline-none focus:ring-2 focus:ring-blue-accent focus:ring-offset-2 rounded"
+                    >
+                      {item}
+                    </Link>
+                  );
+                }
+                if (item === 'History') {
+                  return (
+                    <Link
+                      key={item}
+                      href="/history"
+                      className="font-medium text-sm transition-colors duration-200 text-navy-blue hover:text-blue-accent focus:outline-none focus:ring-2 focus:ring-blue-accent focus:ring-offset-2 rounded"
+                    >
+                      {item}
+                    </Link>
+                  );
+                }
+                return null;
               })}
             </div>
 
@@ -110,13 +157,55 @@ export default function Navbar() {
           <div className="flex flex-col p-4 space-y-2">
             {['Home', 'Academics', 'Tour', 'Admissions', 'History', 'Contact'].map((item) => (
               <div key={item} className="flex flex-col">
-                <Link
-                  href={item === 'Home' ? '/' : `/${item.toLowerCase()}`}
-                  className="font-medium text-base py-3 px-4 transition duration-300 text-navy-blue hover:bg-blue-accent hover:text-white rounded"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  {item}
-                </Link>
+                {item === 'Home' ? (
+                  <Link
+                    href="/"
+                    className="font-medium text-base py-3 px-4 transition duration-300 text-navy-blue hover:bg-blue-accent hover:text-white rounded"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    {item}
+                  </Link>
+                ) : item === 'Academics' ? (
+                  <Link
+                    href="/#academics"
+                    className="font-medium text-base py-3 px-4 transition duration-300 text-navy-blue hover:bg-blue-accent hover:text-white rounded"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    {item}
+                  </Link>
+                ) : item === 'Tour' ? (
+                  <Link
+                    href="/#tour"
+                    className="font-medium text-base py-3 px-4 transition duration-300 text-navy-blue hover:bg-blue-accent hover:text-white rounded"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    {item}
+                  </Link>
+                ) : item === 'Contact' ? (
+                  <Link
+                    href="/#contact"
+                    className="font-medium text-base py-3 px-4 transition duration-300 text-navy-blue hover:bg-blue-accent hover:text-white rounded"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    {item}
+                  </Link>
+                ) : item === 'Admissions' ? (
+                  <Link
+                    href="/admissions"
+                    className="font-medium text-base py-3 px-4 transition duration-300 text-navy-blue hover:bg-blue-accent hover:text-white rounded"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    {item}
+                  </Link>
+                ) : item === 'History' ? (
+                  <Link
+                    href="/history"
+                    className="font-medium text-base py-3 px-4 transition duration-300 text-navy-blue hover:bg-blue-accent hover:text-white rounded"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    {item}
+                  </Link>
+                ) : null}
 
                 {/* Mobile Dropdown Items */}
                 {item === 'Academics' && (

@@ -12,18 +12,11 @@ export default function Footer() {
           <div>
             <h4 className="text-lg font-bold mb-4">Quick Links</h4>
             <ul className="space-y-2 text-sm">
-              {['Academics', 'Tour', 'Admissions', 'History', 'Contact'].map((link) => {
-                const href = link === 'Academics' || link === 'Contact' || link === 'Tour'
-                  ? `/#${link.toLowerCase()}`
-                  : `/${link.toLowerCase()}`;
-                return (
-                  <li key={link}>
-                    <Link href={href} className="hover:text-blue-300 transition">
-                      {link}
-                    </Link>
-                  </li>
-                );
-              })}
+              <li><Link href="/#academics" className="hover:text-blue-300 transition">Academics</Link></li>
+              <li><Link href="/#tour" className="hover:text-blue-300 transition">Tour</Link></li>
+              <li><Link href="/#contact" className="hover:text-blue-300 transition">Contact</Link></li>
+              <li><Link href="/admissions" className="hover:text-blue-300 transition">Admissions</Link></li>
+              <li><Link href="/history" className="hover:text-blue-300 transition">History</Link></li>
             </ul>
           </div>
           <div>
