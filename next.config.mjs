@@ -1,11 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  experimental: {
-    typedRoutes: true,
-    turbopack: {}, // Explicitly configure turbopack to resolve conflict
-  },
+  typedRoutes: true, // moved out of experimental
   typescript: {
-    ignoreBuildErrors: false, // Fix: Enable TypeScript checking
+    ignoreBuildErrors: false,
   },
   images: {
     remotePatterns: [
@@ -26,20 +23,11 @@ const nextConfig = {
         hostname: 'maps.googleapis.com',
       },
     ],
-    formats: ['image/webp', 'image/avif'], // Enable modern image formats
+    formats: ['image/webp', 'image/avif'],
   },
-  // Enable compression
   compress: true,
-  // Enable static optimization where possible
-  output: 'standalone',
-  // Optimize page loading
+  // output: 'standalone',
   trailingSlash: false,
-  // Enable experimental features
-  modularizeImports: {
-    "lucide-react": {
-      transform: "lucide-react/{{kebabCase member}}",
-    },
-  },
 }
 
 export default nextConfig
