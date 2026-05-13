@@ -125,7 +125,7 @@ export default function SECCAPAdmissions() {
             <div className="overflow-x-auto rounded-xl shadow-md ring-1 ring-slate-200">
               <table className="min-w-full border-collapse bg-white">
                 <thead>
-                  <tr className="bg-navy-blue">
+                  <tr className="bg-blue-900">
                     <th className="px-4 py-4 text-left text-sm font-bold tracking-wide text-white uppercase sm:px-6">
                       Program
                     </th>
