@@ -44,7 +44,7 @@ const cutoffMatrix: ProgramCutoff[] = [
 ];
 
 const years = Array.from(new Set(cutoffMatrix.flatMap(({ yearlyCutoffs }) => Object.keys(yearlyCutoffs)))).sort(
-  (firstYear, secondYear) => Number(secondYear) - Number(firstYear),
+  (yearA, yearB) => Number(yearB) - Number(yearA),
 );
 
 export default function SECCAPAdmissions() {
