@@ -21,11 +21,18 @@ const inter = Inter({
   variable: '--font-inter',
 })
 
+const defaultSiteUrl = 'https://agsckarachi.edu.pk'
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL?.trim() || defaultSiteUrl
+
 export const metadata: Metadata = {
-  metadataBase: new URL('https://agsckarachi.edu.pk'),
+  metadataBase: new URL(siteUrl),
+  applicationName: 'Adamjee Government Science College',
   title: {
     template: 'Adamjee Government Science College - %s',
     default: 'Adamjee Government Science College - Home',
+  },
+  alternates: {
+    canonical: '/',
   },
   description:
     "Adamjee Government Science College in Karachi offers Pre-Engineering, Pre-Medical, and Computer Science programs with excellence in education since 1961.",
@@ -46,7 +53,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_PK',
-    url: 'https://agsckarachi.edu.pk',
+    url: siteUrl,
     title: 'Adamjee Government Science College - Home',
     description: 'Adamjee Government Science College in Karachi offers Pre-Engineering, Pre-Medical, and Computer Science programs with excellence in education since 1961.',
     siteName: 'Adamjee Government Science College',
@@ -72,7 +79,7 @@ const websiteJsonLd = {
   '@type': 'WebSite',
   name: 'Adamjee Government Science College',
   alternateName: 'AGSC',
-  url: 'https://agsckarachi.edu.pk',
+  url: siteUrl,
 }
 
 export default function RootLayout({
