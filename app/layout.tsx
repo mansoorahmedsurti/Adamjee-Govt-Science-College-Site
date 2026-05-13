@@ -21,7 +21,8 @@ const inter = Inter({
   variable: '--font-inter',
 })
 
-const siteUrl = 'https://adamjee-govt-science-college.vercel.app'
+const defaultSiteUrl = 'https://adamjee-govt-science-college.vercel.app'
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL?.trim() || defaultSiteUrl
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
