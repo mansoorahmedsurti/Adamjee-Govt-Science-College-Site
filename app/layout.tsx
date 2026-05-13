@@ -21,21 +21,21 @@ const inter = Inter({
   variable: '--font-inter',
 })
 
-const defaultSiteUrl = 'https://adamjee-govt-science-college.vercel.app'
+const defaultSiteUrl = 'https://agsckarachi.edu.pk'
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL?.trim() || defaultSiteUrl
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   applicationName: 'Adamjee Government Science College',
   title: {
-    template: '%s | Adamjee Government Science College - Karachi',
-    default: 'Adamjee Government Science College - Karachi | Premier Science Education Since 1961',
+    template: 'Adamjee Government Science College - %s',
+    default: 'Adamjee Government Science College - Home',
   },
   alternates: {
     canonical: '/',
   },
   description:
-    "Premier science college in Karachi with Pre-Engineering, Pre-Medical, and Computer Science programs. Excellence in education since 1961.",
+    "Adamjee Government Science College in Karachi offers Pre-Engineering, Pre-Medical, and Computer Science programs with excellence in education since 1961.",
   keywords: ['Adamjee Government Science College', 'AGSC Karachi', 'Science College', 'Pre-Engineering', 'Pre-Medical', 'Computer Science', 'SECCAP', 'Education in Karachi'],
   authors: [{ name: 'Adamjee Government Science College' }],
   creator: 'Mansoor Ahmed',
@@ -54,8 +54,8 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_PK',
     url: siteUrl,
-    title: 'Adamjee Government Science College - Karachi | Premier Science Education Since 1961',
-    description: 'Premier science college in Karachi with Pre-Engineering, Pre-Medical, and Computer Science programs. Excellence in education since 1961.',
+    title: 'Adamjee Government Science College - Home',
+    description: 'Adamjee Government Science College in Karachi offers Pre-Engineering, Pre-Medical, and Computer Science programs with excellence in education since 1961.',
     siteName: 'Adamjee Government Science College',
     images: [
       {
@@ -68,10 +68,18 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Adamjee Government Science College - Karachi',
-    description: 'Premier science college in Karachi with Pre-Engineering, Pre-Medical, and Computer Science programs. Excellence in education since 1961.',
+    title: 'Adamjee Government Science College - Home',
+    description: 'Adamjee Government Science College in Karachi offers Pre-Engineering, Pre-Medical, and Computer Science programs with excellence in education since 1961.',
     images: ['/images/agscpics.jpg'],
   },
+}
+
+const websiteJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: 'Adamjee Government Science College',
+  alternateName: 'AGSC',
+  url: siteUrl,
 }
 
 export default function RootLayout({
@@ -88,6 +96,10 @@ export default function RootLayout({
         <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
       </head>
       <body className={`${inter.variable} font-sans antialiased`}>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
+        />
         <script
           async
           defer

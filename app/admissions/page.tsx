@@ -1,6 +1,13 @@
+import type { Metadata } from 'next';
 import SECCAPAdmissions from '@/components/SECCAPAdmissions';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+
+export const metadata: Metadata = {
+  title: 'Admissions',
+  description:
+    'Adamjee Government Science College - Admissions information, eligibility, and SECCAP cutoff updates for prospective students.',
+};
 
 export default function AdmissionsPage() {
   return (

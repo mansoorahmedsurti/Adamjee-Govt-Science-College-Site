@@ -22,9 +22,10 @@ export default function Navbar() {
 
   return (
     <>
-      <nav className="sticky top-0 z-50 navbar-premium bg-white shadow-sm">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
+      <header className="sticky top-0 z-50 navbar-premium bg-white shadow-sm">
+        <nav aria-label="Primary site navigation">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="flex justify-between items-center h-16">
             <div className="flex items-center gap-3">
               <Image
                 src="/images/agsc.png"
@@ -37,11 +38,11 @@ export default function Navbar() {
             </div>
 
             {/* Desktop Menu */}
-            <div className="hidden md:flex gap-8 items-center">
-              {['Home', 'Academics', 'Tour', 'Admissions', 'History', 'Contact'].map((item) => {
-                if (item === 'Academics') {
-                  return (
-                    <div key={item} className="relative group py-4">
+            <ul className="hidden md:flex gap-8 items-center" role="list">
+              {['Home', 'Academics', 'Tour', 'Admissions', 'History', 'Contact'].map((item) => (
+                <li key={item}>
+                  {item === 'Academics' ? (
+                    <div className="relative group py-4">
                       <Link
                         href="/#academics"
                         className="font-medium text-sm transition-colors duration-200 text-navy-blue hover:text-blue-accent focus:outline-none focus:ring-2 focus:ring-blue-accent focus:ring-offset-2 rounded flex items-center gap-1"
@@ -69,66 +70,45 @@ export default function Navbar() {
                         </div>
                       </div>
                     </div>
-                  );
-                }
-                if (item === 'Home') {
-                  return (
+                  ) : item === 'Home' ? (
                     <Link
-                      key={item}
                       href="/"
                       className="font-medium text-sm transition-colors duration-200 text-navy-blue hover:text-blue-accent focus:outline-none focus:ring-2 focus:ring-blue-accent focus:ring-offset-2 rounded"
                     >
                       {item}
                     </Link>
-                  );
-                }
-                if (item === 'Tour') {
-                  return (
+                  ) : item === 'Tour' ? (
                     <Link
-                      key={item}
                       href="/#tour"
                       className="font-medium text-sm transition-colors duration-200 text-navy-blue hover:text-blue-accent focus:outline-none focus:ring-2 focus:ring-blue-accent focus:ring-offset-2 rounded"
                     >
                       {item}
                     </Link>
-                  );
-                }
-                if (item === 'Contact') {
-                  return (
+                  ) : item === 'Contact' ? (
                     <Link
-                      key={item}
                       href="/#contact"
                       className="font-medium text-sm transition-colors duration-200 text-navy-blue hover:text-blue-accent focus:outline-none focus:ring-2 focus:ring-blue-accent focus:ring-offset-2 rounded"
                     >
                       {item}
                     </Link>
-                  );
-                }
-                if (item === 'Admissions') {
-                  return (
+                  ) : item === 'Admissions' ? (
                     <Link
-                      key={item}
                       href="/admissions"
                       className="font-medium text-sm transition-colors duration-200 text-navy-blue hover:text-blue-accent focus:outline-none focus:ring-2 focus:ring-blue-accent focus:ring-offset-2 rounded"
                     >
                       {item}
                     </Link>
-                  );
-                }
-                if (item === 'History') {
-                  return (
+                  ) : item === 'History' ? (
                     <Link
-                      key={item}
                       href="/history"
                       className="font-medium text-sm transition-colors duration-200 text-navy-blue hover:text-blue-accent focus:outline-none focus:ring-2 focus:ring-blue-accent focus:ring-offset-2 rounded"
                     >
                       {item}
                     </Link>
-                  );
-                }
-                return null;
-              })}
-            </div>
+                  ) : null}
+                </li>
+              ))}
+            </ul>
 
             <button
               className="md:hidden w-12 h-12 rounded-full font-medium transition-colors duration-200 flex items-center justify-center bg-blue-accent text-white hover:bg-navy-dark focus:outline-none focus:ring-2 focus:ring-blue-accent focus:ring-offset-2"
@@ -139,7 +119,8 @@ export default function Navbar() {
             </button>
           </div>
         </div>
-      </nav>
+        </nav>
+      </header>
 
       {/* Mobile Menu - Positioned outside the navbar to avoid overlay issues */}
       <div
@@ -154,76 +135,78 @@ export default function Navbar() {
           }`}
           onClick={(e) => e.stopPropagation()}
         >
-          <div className="flex flex-col p-4 space-y-2">
-            {['Home', 'Academics', 'Tour', 'Admissions', 'History', 'Contact'].map((item) => (
-              <div key={item} className="flex flex-col">
-                {item === 'Home' ? (
-                  <Link
-                    href="/"
-                    className="font-medium text-base py-3 px-4 transition duration-300 text-navy-blue hover:bg-blue-accent hover:text-white rounded"
-                    onClick={() => setIsMobileMenuOpen(false)}
-                  >
-                    {item}
-                  </Link>
-                ) : item === 'Academics' ? (
-                  <Link
-                    href="/#academics"
-                    className="font-medium text-base py-3 px-4 transition duration-300 text-navy-blue hover:bg-blue-accent hover:text-white rounded"
-                    onClick={() => setIsMobileMenuOpen(false)}
-                  >
-                    {item}
-                  </Link>
-                ) : item === 'Tour' ? (
-                  <Link
-                    href="/#tour"
-                    className="font-medium text-base py-3 px-4 transition duration-300 text-navy-blue hover:bg-blue-accent hover:text-white rounded"
-                    onClick={() => setIsMobileMenuOpen(false)}
-                  >
-                    {item}
-                  </Link>
-                ) : item === 'Contact' ? (
-                  <Link
-                    href="/#contact"
-                    className="font-medium text-base py-3 px-4 transition duration-300 text-navy-blue hover:bg-blue-accent hover:text-white rounded"
-                    onClick={() => setIsMobileMenuOpen(false)}
-                  >
-                    {item}
-                  </Link>
-                ) : item === 'Admissions' ? (
-                  <Link
-                    href="/admissions"
-                    className="font-medium text-base py-3 px-4 transition duration-300 text-navy-blue hover:bg-blue-accent hover:text-white rounded"
-                    onClick={() => setIsMobileMenuOpen(false)}
-                  >
-                    {item}
-                  </Link>
-                ) : item === 'History' ? (
-                  <Link
-                    href="/history"
-                    className="font-medium text-base py-3 px-4 transition duration-300 text-navy-blue hover:bg-blue-accent hover:text-white rounded"
-                    onClick={() => setIsMobileMenuOpen(false)}
-                  >
-                    {item}
-                  </Link>
-                ) : null}
-
-                {/* Mobile Dropdown Items */}
-                {item === 'Academics' && (
-                  <div className="flex flex-col ml-4 pl-4 border-l-2 border-gray-100 mt-1 mb-2 space-y-1">
-                    <a
-                      href="https://drive.google.com/drive/folders/1JbR11sv3I1avlLajkJXFzMqgum21snNE"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="font-medium text-sm py-2 px-3 transition duration-300 text-blue-accent hover:bg-blue-50 rounded"
+          <nav aria-label="Mobile site navigation">
+            <ul className="flex flex-col p-4 space-y-2" role="list">
+              {['Home', 'Academics', 'Tour', 'Admissions', 'History', 'Contact'].map((item) => (
+                <li key={item} className="flex flex-col">
+                  {item === 'Home' ? (
+                    <Link
+                      href="/"
+                      className="font-medium text-base py-3 px-4 transition duration-300 text-navy-blue hover:bg-blue-accent hover:text-white rounded"
                       onClick={() => setIsMobileMenuOpen(false)}
                     >
-                      ↳ Prelim Papers 2026
-                    </a>
-                  </div>
-                )}
-              </div>
-            ))}
-          </div>
+                      {item}
+                    </Link>
+                  ) : item === 'Academics' ? (
+                    <Link
+                      href="/#academics"
+                      className="font-medium text-base py-3 px-4 transition duration-300 text-navy-blue hover:bg-blue-accent hover:text-white rounded"
+                      onClick={() => setIsMobileMenuOpen(false)}
+                    >
+                      {item}
+                    </Link>
+                  ) : item === 'Tour' ? (
+                    <Link
+                      href="/#tour"
+                      className="font-medium text-base py-3 px-4 transition duration-300 text-navy-blue hover:bg-blue-accent hover:text-white rounded"
+                      onClick={() => setIsMobileMenuOpen(false)}
+                    >
+                      {item}
+                    </Link>
+                  ) : item === 'Contact' ? (
+                    <Link
+                      href="/#contact"
+                      className="font-medium text-base py-3 px-4 transition duration-300 text-navy-blue hover:bg-blue-accent hover:text-white rounded"
+                      onClick={() => setIsMobileMenuOpen(false)}
+                    >
+                      {item}
+                    </Link>
+                  ) : item === 'Admissions' ? (
+                    <Link
+                      href="/admissions"
+                      className="font-medium text-base py-3 px-4 transition duration-300 text-navy-blue hover:bg-blue-accent hover:text-white rounded"
+                      onClick={() => setIsMobileMenuOpen(false)}
+                    >
+                      {item}
+                    </Link>
+                  ) : item === 'History' ? (
+                    <Link
+                      href="/history"
+                      className="font-medium text-base py-3 px-4 transition duration-300 text-navy-blue hover:bg-blue-accent hover:text-white rounded"
+                      onClick={() => setIsMobileMenuOpen(false)}
+                    >
+                      {item}
+                    </Link>
+                  ) : null}
+
+                  {/* Mobile Dropdown Items */}
+                  {item === 'Academics' && (
+                    <div className="flex flex-col ml-4 pl-4 border-l-2 border-gray-100 mt-1 mb-2 space-y-1">
+                      <a
+                        href="https://drive.google.com/drive/folders/1JbR11sv3I1avlLajkJXFzMqgum21snNE"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="font-medium text-sm py-2 px-3 transition duration-300 text-blue-accent hover:bg-blue-50 rounded"
+                        onClick={() => setIsMobileMenuOpen(false)}
+                      >
+                        ↳ Prelim Papers 2026
+                      </a>
+                    </div>
+                  )}
+                </li>
+              ))}
+            </ul>
+          </nav>
         </div>
       </div>
     </>
