@@ -4,40 +4,39 @@ import { motion } from 'framer-motion';
 import { Shield, Zap, Award } from 'lucide-react';
 
 export default function SECCAPAdmissions() {
-  const yearlyCutoffMarks = [
+  const cutoffMatrix = [
     {
-      year: 2025,
-      data: [
-        { program: 'Pre-Medical (PM)', marks: 485, percentage: '88.18%' },
-        { program: 'Pre-Engineering (PE)', marks: 468, percentage: '85.09%' },
-        { program: 'Computer Science (CS)', marks: 481, percentage: '87.45%' },
-      ],
+      program: 'Pre-Medical (PM)',
+      yearlyCutoffs: {
+        2025: { marks: 485, percentage: '88.18%' },
+        2024: { marks: 461, percentage: '83.82%' },
+        2023: { marks: 497, percentage: '90.36%' },
+        2022: { marks: 527, percentage: '95.82%' },
+      },
     },
     {
-      year: 2024,
-      data: [
-        { program: 'Pre-Medical (PM)', marks: 461, percentage: '83.82%' },
-        { program: 'Pre-Engineering (PE)', marks: 469, percentage: '85.27%' },
-        { program: 'Computer Science (CS)', marks: 469, percentage: '85.27%' },
-      ],
+      program: 'Pre-Engineering (PE)',
+      yearlyCutoffs: {
+        2025: { marks: 468, percentage: '85.09%' },
+        2024: { marks: 469, percentage: '85.27%' },
+        2023: { marks: 485, percentage: '88.18%' },
+        2022: { marks: 520, percentage: '94.55%' },
+      },
     },
     {
-      year: 2023,
-      data: [
-        { program: 'Pre-Medical (PM)', marks: 497, percentage: '90.36%' },
-        { program: 'Pre-Engineering (PE)', marks: 485, percentage: '88.18%' },
-        { program: 'Computer Science (CS)', marks: 496, percentage: '90.18%' },
-      ],
-    },
-    {
-      year: 2022,
-      data: [
-        { program: 'Pre-Medical (PM)', marks: 527, percentage: '95.82%' },
-        { program: 'Pre-Engineering (PE)', marks: 520, percentage: '94.55%' },
-        { program: 'Computer Science (CS)', marks: 522, percentage: '94.91%' },
-      ],
+      program: 'Computer Science (CS)',
+      yearlyCutoffs: {
+        2025: { marks: 481, percentage: '87.45%' },
+        2024: { marks: 469, percentage: '85.27%' },
+        2023: { marks: 496, percentage: '90.18%' },
+        2022: { marks: 522, percentage: '94.91%' },
+      },
     },
   ];
+
+  const years = Array.from(new Set(cutoffMatrix.flatMap(({ yearlyCutoffs }) => Object.keys(yearlyCutoffs)))).sort(
+    (firstYear, secondYear) => Number(secondYear) - Number(firstYear),
+  );
 
   return (
     <section className="seccap-section py-20">
@@ -113,32 +112,46 @@ export default function SECCAPAdmissions() {
             <h3 className="text-xl sm:text-2xl font-bold mb-6 font-inter text-forest-green">
               SECCAP Cutoff Marks (2022–2025)
             </h3>
-            <div className="space-y-8">
-              {yearlyCutoffMarks.map(({ year, data }) => (
-                <div key={year}>
-                  <h4 className="text-lg sm:text-xl font-bold mb-3 text-forest-green">{year} Cutoff Marks</h4>
-                  <div className="overflow-x-auto">
-                    <table className="w-full border-collapse">
-                      <thead>
-                        <tr className="bg-blue-accent">
-                          <th className="px-6 py-4 text-left text-white font-bold">Program</th>
-                          <th className="px-6 py-4 text-center text-white font-bold">Cutoff Marks</th>
-                          <th className="px-6 py-4 text-center text-white font-bold">Percentage</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        {data.map((item, i) => (
-                          <tr key={`${year}-${item.program}`} className={`border-b ${i % 2 === 0 ? 'bg-gray-50' : 'bg-white'}`}>
-                            <td className="px-6 py-4 font-semibold text-forest-green">{item.program}</td>
-                            <td className="px-6 py-4 text-center font-bold text-blue-accent text-lg">{item.marks}</td>
-                            <td className="px-6 py-4 text-center font-semibold text-green-600">{item.percentage}</td>
-                          </tr>
-                        ))}
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-              ))}
+            <div className="overflow-x-auto rounded-xl shadow-md ring-1 ring-slate-200">
+              <table className="min-w-full border-collapse bg-white">
+                <thead>
+                  <tr className="bg-navy-blue">
+                    <th className="px-4 py-4 text-left text-sm font-bold tracking-wide text-white uppercase sm:px-6">
+                      Program
+                    </th>
+                    {years.map((year) => (
+                      <th
+                        key={year}
+                        className="px-4 py-4 text-center text-sm font-bold tracking-wide text-white uppercase sm:px-6"
+                      >
+                        {year}
+                      </th>
+                    ))}
+                  </tr>
+                </thead>
+                <tbody>
+                  {cutoffMatrix.map(({ program, yearlyCutoffs }) => (
+                    <tr key={program} className="border-b border-slate-200 transition-colors hover:bg-slate-50">
+                      <td className="px-4 py-4 font-semibold text-forest-green sm:px-6">{program}</td>
+                      {years.map((year) => {
+                        const cutoff = yearlyCutoffs[year];
+
+                        return (
+                          <td key={`${program}-${year}`} className="px-4 py-4 text-center font-semibold text-slate-700 sm:px-6">
+                            {cutoff ? (
+                              <span className="whitespace-nowrap text-sm sm:text-base">
+                                <span className="font-bold text-blue-accent">{cutoff.marks}</span> ({cutoff.percentage})
+                              </span>
+                            ) : (
+                              <span className="text-slate-400">—</span>
+                            )}
+                          </td>
+                        );
+                      })}
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
             </div>
             <p className="text-slate-600 text-sm mt-4 italic">
               *Cutoff marks are based on SECCAP merit lists for 2022–2025 and may be subject to change based on official
