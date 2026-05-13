@@ -4,6 +4,41 @@ import { motion } from 'framer-motion';
 import { Shield, Zap, Award } from 'lucide-react';
 
 export default function SECCAPAdmissions() {
+  const yearlyCutoffMarks = [
+    {
+      year: 2025,
+      data: [
+        { program: 'Pre-Medical (PM)', marks: 485, percentage: '88.18%' },
+        { program: 'Pre-Engineering (PE)', marks: 468, percentage: '85.09%' },
+        { program: 'Computer Science (CS)', marks: 481, percentage: '87.45%' },
+      ],
+    },
+    {
+      year: 2024,
+      data: [
+        { program: 'Pre-Medical (PM)', marks: 461, percentage: '83.82%' },
+        { program: 'Pre-Engineering (PE)', marks: 469, percentage: '85.27%' },
+        { program: 'Computer Science (CS)', marks: 469, percentage: '85.27%' },
+      ],
+    },
+    {
+      year: 2023,
+      data: [
+        { program: 'Pre-Medical (PM)', marks: 497, percentage: '90.36%' },
+        { program: 'Pre-Engineering (PE)', marks: 485, percentage: '88.18%' },
+        { program: 'Computer Science (CS)', marks: 496, percentage: '90.18%' },
+      ],
+    },
+    {
+      year: 2022,
+      data: [
+        { program: 'Pre-Medical (PM)', marks: 527, percentage: '95.82%' },
+        { program: 'Pre-Engineering (PE)', marks: 520, percentage: '94.55%' },
+        { program: 'Computer Science (CS)', marks: 522, percentage: '94.91%' },
+      ],
+    },
+  ];
+
   return (
     <section className="seccap-section py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -75,33 +110,38 @@ export default function SECCAPAdmissions() {
           </div>
 
           <div className="mt-12">
-            <h3 className="text-xl sm:text-2xl font-bold mb-6 font-inter text-forest-green">2025 SECCAP Cutoff Marks</h3>
-            <div className="overflow-x-auto">
-              <table className="w-full border-collapse">
-                <thead>
-                  <tr className="bg-blue-accent">
-                    <th className="px-6 py-4 text-left text-white font-bold">Program</th>
-                    <th className="px-6 py-4 text-center text-white font-bold">Cutoff Marks</th>
-                    <th className="px-6 py-4 text-center text-white font-bold">Percentage</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {[
-                    { program: 'Pre-Medical (PM)', marks: 485, percentage: '88.18%' },
-                    { program: 'Pre-Engineering (PE)', marks: 468, percentage: '85.09%' },
-                    { program: 'Computer Science (CS)', marks: 481, percentage: '87.45%' },
-                  ].map((item, i) => (
-                    <tr key={i} className={`border-b ${i % 2 === 0 ? 'bg-gray-50' : 'bg-white'}`}>
-                      <td className="px-6 py-4 font-semibold text-forest-green">{item.program}</td>
-                      <td className="px-6 py-4 text-center font-bold text-blue-accent text-lg">{item.marks}</td>
-                      <td className="px-6 py-4 text-center font-semibold text-green-600">{item.percentage}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
+            <h3 className="text-xl sm:text-2xl font-bold mb-6 font-inter text-forest-green">
+              SECCAP Cutoff Marks (2022–2025)
+            </h3>
+            <div className="space-y-8">
+              {yearlyCutoffMarks.map(({ year, data }) => (
+                <div key={year}>
+                  <h4 className="text-lg sm:text-xl font-bold mb-3 text-forest-green">{year} Cutoff Marks</h4>
+                  <div className="overflow-x-auto">
+                    <table className="w-full border-collapse">
+                      <thead>
+                        <tr className="bg-blue-accent">
+                          <th className="px-6 py-4 text-left text-white font-bold">Program</th>
+                          <th className="px-6 py-4 text-center text-white font-bold">Cutoff Marks</th>
+                          <th className="px-6 py-4 text-center text-white font-bold">Percentage</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {data.map((item, i) => (
+                          <tr key={`${year}-${item.program}`} className={`border-b ${i % 2 === 0 ? 'bg-gray-50' : 'bg-white'}`}>
+                            <td className="px-6 py-4 font-semibold text-forest-green">{item.program}</td>
+                            <td className="px-6 py-4 text-center font-bold text-blue-accent text-lg">{item.marks}</td>
+                            <td className="px-6 py-4 text-center font-semibold text-green-600">{item.percentage}</td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              ))}
             </div>
             <p className="text-slate-600 text-sm mt-4 italic">
-              *Cutoff marks are based on SECCAP 2025 merit lists and may be subject to change based on official
+              *Cutoff marks are based on SECCAP merit lists for 2022–2025 and may be subject to change based on official
               announcements.
             </p>
           </div>
