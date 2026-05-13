@@ -6,7 +6,7 @@ import Footer from '@/components/Footer';
 export const metadata: Metadata = {
   title: 'History',
   description:
-    'Adamjee Government Science College - History and foundations of one of Karachi's leading science colleges.',
+    "Adamjee Government Science College - History and foundations of one of Karachi's leading science colleges.",
 };
 
 export default function HistoryPage() {
