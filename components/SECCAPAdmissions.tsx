@@ -3,41 +3,51 @@
 import { motion } from 'framer-motion';
 import { Shield, Zap, Award } from 'lucide-react';
 
+type CutoffValue = {
+  marks: number;
+  percentage: string;
+};
+
+type ProgramCutoff = {
+  program: string;
+  yearlyCutoffs: Record<string, CutoffValue>;
+};
+
+const cutoffMatrix: ProgramCutoff[] = [
+  {
+    program: 'Pre-Medical (PM)',
+    yearlyCutoffs: {
+      2025: { marks: 485, percentage: '88.18%' },
+      2024: { marks: 461, percentage: '83.82%' },
+      2023: { marks: 497, percentage: '90.36%' },
+      2022: { marks: 527, percentage: '95.82%' },
+    },
+  },
+  {
+    program: 'Pre-Engineering (PE)',
+    yearlyCutoffs: {
+      2025: { marks: 468, percentage: '85.09%' },
+      2024: { marks: 469, percentage: '85.27%' },
+      2023: { marks: 485, percentage: '88.18%' },
+      2022: { marks: 520, percentage: '94.55%' },
+    },
+  },
+  {
+    program: 'Computer Science (CS)',
+    yearlyCutoffs: {
+      2025: { marks: 481, percentage: '87.45%' },
+      2024: { marks: 469, percentage: '85.27%' },
+      2023: { marks: 496, percentage: '90.18%' },
+      2022: { marks: 522, percentage: '94.91%' },
+    },
+  },
+];
+
+const years = Array.from(new Set(cutoffMatrix.flatMap(({ yearlyCutoffs }) => Object.keys(yearlyCutoffs)))).sort(
+  (firstYear, secondYear) => Number(secondYear) - Number(firstYear),
+);
+
 export default function SECCAPAdmissions() {
-  const cutoffMatrix = [
-    {
-      program: 'Pre-Medical (PM)',
-      yearlyCutoffs: {
-        2025: { marks: 485, percentage: '88.18%' },
-        2024: { marks: 461, percentage: '83.82%' },
-        2023: { marks: 497, percentage: '90.36%' },
-        2022: { marks: 527, percentage: '95.82%' },
-      },
-    },
-    {
-      program: 'Pre-Engineering (PE)',
-      yearlyCutoffs: {
-        2025: { marks: 468, percentage: '85.09%' },
-        2024: { marks: 469, percentage: '85.27%' },
-        2023: { marks: 485, percentage: '88.18%' },
-        2022: { marks: 520, percentage: '94.55%' },
-      },
-    },
-    {
-      program: 'Computer Science (CS)',
-      yearlyCutoffs: {
-        2025: { marks: 481, percentage: '87.45%' },
-        2024: { marks: 469, percentage: '85.27%' },
-        2023: { marks: 496, percentage: '90.18%' },
-        2022: { marks: 522, percentage: '94.91%' },
-      },
-    },
-  ];
-
-  const years = Array.from(new Set(cutoffMatrix.flatMap(({ yearlyCutoffs }) => Object.keys(yearlyCutoffs)))).sort(
-    (firstYear, secondYear) => Number(secondYear) - Number(firstYear),
-  );
-
   return (
     <section className="seccap-section py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
