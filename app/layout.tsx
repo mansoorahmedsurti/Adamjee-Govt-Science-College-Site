@@ -21,10 +21,17 @@ const inter = Inter({
   variable: '--font-inter',
 })
 
+const siteUrl = 'https://adamjee-govt-science-college.vercel.app'
+
 export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
+  applicationName: 'Adamjee Government Science College',
   title: {
     template: '%s | Adamjee Government Science College - Karachi',
     default: 'Adamjee Government Science College - Karachi | Premier Science Education Since 1961',
+  },
+  alternates: {
+    canonical: '/',
   },
   description:
     "Premier science college in Karachi with Pre-Engineering, Pre-Medical, and Computer Science programs. Excellence in education since 1961.",
@@ -45,7 +52,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_PK',
-    url: 'https://agsckarachi.edu.pk',
+    url: siteUrl,
     title: 'Adamjee Government Science College - Karachi | Premier Science Education Since 1961',
     description: 'Premier science college in Karachi with Pre-Engineering, Pre-Medical, and Computer Science programs. Excellence in education since 1961.',
     siteName: 'Adamjee Government Science College',
