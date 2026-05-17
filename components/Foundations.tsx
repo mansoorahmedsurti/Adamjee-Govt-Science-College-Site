@@ -40,7 +40,7 @@ export default function Foundations() {
                   className={`w-24 h-24 rounded-full text-white flex items-center justify-center font-bold text-lg border-4 ${
                     milestone.isHighlight
                       ? 'bg-gradient-to-br from-navy-blue to-blue-accent border-blue-accent'
-                      : 'bg-gradient-to-br from-forest-green to-[#004d2e] border-yellow-500'
+                      : 'bg-gradient-to-br from-[#1e3a8a] to-[#2563eb] border-yellow-500'
                   }`}
                 >
                   {milestone.year}

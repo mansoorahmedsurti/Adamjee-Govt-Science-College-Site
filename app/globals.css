@@ -6,7 +6,7 @@
   --color-navy-blue: #1e3a8a;
   --color-navy-dark: #0f172a;
   --color-blue-accent: #2563eb;
-  --color-forest-green: #003319;
+  --color-forest-green: var(--color-navy-blue);
   --color-beige: #f9f9f5;
   --color-white: #ffffff;
 

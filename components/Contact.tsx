@@ -83,7 +83,7 @@ export default function Contact() {
           ].map((item, i) => (
             <motion.div
               key={i}
-              className="bg-gradient-to-br from-forest-green to-[#004d2e] rounded-lg p-8 text-white hover-lift"
+              className="bg-gradient-to-br from-[#1e3a8a] to-[#2563eb] rounded-lg p-8 text-white hover-lift"
               whileHover={{ scale: 1.05 }}
             >
               <item.icon className="text-blue-accent mb-4" size={32} />

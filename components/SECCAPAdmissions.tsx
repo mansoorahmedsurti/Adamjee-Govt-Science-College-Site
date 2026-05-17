@@ -103,8 +103,8 @@ export default function SECCAPAdmissions() {
           </div>
 
           <div className="grid md:grid-cols-2 gap-6 mt-12">
-            <div className="bg-green-50 border-l-4 border-green-600 p-4 rounded h-13.5 flex items-center">
-              <p className="text-green-900 font-semibold">
+            <div className="bg-blue-50 border-l-4 border-blue-600 p-4 rounded h-13.5 flex items-center">
+              <p className="text-blue-900 font-semibold">
                 <strong>DDO Code:</strong> KQ2172
               </p>
             </div>

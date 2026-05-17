@@ -30,7 +30,7 @@ export default function Hero() {
       />
 
       {/* Dark overlay */}
-      <div className="absolute inset-0 bg-[#003319]/50"></div>
+      <div className="absolute inset-0 bg-[#1e3a8a]/50"></div>
 
       {/* Content */}
       <motion.div
