@@ -37,8 +37,8 @@ export default function Tour() {
               <div className="bg-blue-50 px-4 py-2 rounded-lg">
                 <span className="font-semibold text-blue-accent">Campus Facilities</span>
               </div>
-              <div className="bg-green-50 px-4 py-2 rounded-lg">
-                <span className="font-semibold text-green-600">Laboratories</span>
+              <div className="bg-blue-50 px-4 py-2 rounded-lg">
+                <span className="font-semibold text-blue-600">Laboratories</span>
               </div>
               <div className="bg-yellow-50 px-4 py-2 rounded-lg">
                 <span className="font-semibold text-yellow-600">Libraries</span>
