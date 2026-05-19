@@ -2,11 +2,21 @@ import type { Metadata } from 'next';
 import Foundations from '@/components/Foundations';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import { siteUrl } from '@/lib/site-config';
 
 export const metadata: Metadata = {
   title: 'History',
   description:
     "Adamjee Government Science College - History and foundations of one of Karachi's leading science colleges.",
+  alternates: {
+    canonical: '/history',
+  },
+  openGraph: {
+    url: `${siteUrl}/history`,
+    title: 'Adamjee Government Science College - History',
+    description:
+      "History and foundations of one of Karachi's leading science colleges.",
+  },
 };
 
 export default function HistoryPage() {
