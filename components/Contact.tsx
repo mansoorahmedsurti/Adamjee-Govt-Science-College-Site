@@ -83,15 +83,15 @@ export default function Contact() {
           ].map((item, i) => (
             <motion.div
               key={i}
-              className="bg-gradient-to-br from-[#1e3a8a] to-[#2563eb] rounded-lg p-8 text-white hover-lift"
+              className="bg-transparent border border-[#2563eb] rounded-lg p-8 text-[#1e3a8a] hover-lift"
               whileHover={{ scale: 1.05 }}
             >
-              <item.icon className="text-blue-accent mb-4" size={32} />
+              <item.icon className="text-[#2563eb] mb-4" size={32} />
               <h3 className="text-xl font-bold mb-3">{item.title}</h3>
               {item.link ? (
                 <a
                   href={item.link}
-                  className="text-blue-accent hover:text-blue-400 font-semibold"
+                    className="text-[#2563eb] hover:text-[#1e40af] font-semibold"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -103,7 +103,7 @@ export default function Contact() {
                     href="https://instagram.com/agsckarachi"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-blue-accent hover:text-blue-400"
+                    className="text-[#2563eb] hover:text-[#1e40af]"
                     aria-label="Instagram"
                   >
                     <Instagram size={24} />
@@ -112,7 +112,7 @@ export default function Contact() {
                     href="https://facebook.com/agsckarachii"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-blue-accent hover:text-blue-400"
+                    className="text-[#2563eb] hover:text-[#1e40af]"
                     aria-label="Official Facebook Page"
                   >
                     <Facebook size={24} />
@@ -121,14 +121,14 @@ export default function Contact() {
                     href="https://www.facebook.com/groups/1007924619869977/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-blue-accent hover:text-blue-400"
+                    className="text-[#2563eb] hover:text-[#1e40af]"
                     aria-label="SECCAP Facebook Group"
                   >
                     <Award size={24} />
                   </a>
                 </div>
               ) : (
-                <p className="text-blue-accent">{item.content}</p>
+                <p className="text-[#2563eb]">{item.content}</p>
               )}
             </motion.div>
           ))}
