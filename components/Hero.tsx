@@ -38,9 +38,11 @@ export default function Hero() {
         transition={{ duration: 0.7, ease: 'easeOut' }}
         className="relative z-10 text-center text-white max-w-5xl mx-auto px-4"
       >
-        <span className="inline-flex items-center px-4 py-1.5 rounded-full text-xs sm:text-sm font-semibold uppercase tracking-[0.12em] bg-white/15 border border-white/20 mb-6">
-          Premier Public Science College • Karachi
-        </span>
+        <div className="mb-6">
+          <span className="inline-flex items-center px-4 py-1.5 rounded-full text-xs sm:text-sm font-semibold uppercase tracking-[0.12em] bg-white/15 border border-white/20">
+            Premier Public Science College • Karachi
+          </span>
+        </div>
 
         <h1 className="text-white text-4xl sm:text-5xl md:text-7xl font-bold mb-5 font-inter leading-tight">
           Adamjee Government Science College

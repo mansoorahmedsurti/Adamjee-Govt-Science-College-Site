@@ -5,7 +5,20 @@ import Image from 'next/image';
 import { useState, useEffect } from 'react';
 import { ChevronDown } from 'lucide-react';
 
-const navItems = ['Home', 'Academics', 'Tour', 'Admissions', 'History', 'Contact'];
+type NavItem = {
+  label: string;
+  href: string;
+  hasDropdown?: boolean;
+};
+
+const navItems: NavItem[] = [
+  { label: 'Home', href: '/' },
+  { label: 'Academics', href: '/#academics', hasDropdown: true },
+  { label: 'Tour', href: '/#tour' },
+  { label: 'Admissions', href: '/admissions' },
+  { label: 'History', href: '/history' },
+  { label: 'Contact', href: '/#contact' },
+];
 
 export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -20,6 +33,9 @@ export default function Navbar() {
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
+
+  const baseLinkClass =
+    'px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-200 text-navy-blue hover:bg-blue-100/70 hover:text-blue-accent focus:outline-none focus:ring-2 focus:ring-blue-accent focus:ring-offset-2';
 
   return (
     <>
@@ -44,14 +60,11 @@ export default function Navbar() {
 
               <ul className="hidden md:flex gap-2 items-center" role="list">
                 {navItems.map((item) => (
-                  <li key={item}>
-                    {item === 'Academics' ? (
+                  <li key={item.label}>
+                    {item.hasDropdown ? (
                       <div className="relative group py-4">
-                        <Link
-                          href="/#academics"
-                          className="px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-200 text-navy-blue hover:bg-blue-100/70 hover:text-blue-accent focus:outline-none focus:ring-2 focus:ring-blue-accent focus:ring-offset-2 flex items-center gap-1"
-                        >
-                          {item}
+                        <Link href={item.href} className={`${baseLinkClass} flex items-center gap-1`}>
+                          {item.label}
                           <ChevronDown size={14} className="text-navy-blue group-hover:text-blue-accent transition-colors" />
                         </Link>
 
@@ -71,42 +84,11 @@ export default function Navbar() {
                           </div>
                         </div>
                       </div>
-                    ) : item === 'Home' ? (
-                      <Link
-                        href="/"
-                        className="px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-200 text-navy-blue hover:bg-blue-100/70 hover:text-blue-accent focus:outline-none focus:ring-2 focus:ring-blue-accent focus:ring-offset-2"
-                      >
-                        {item}
+                    ) : (
+                      <Link href={item.href} className={baseLinkClass}>
+                        {item.label}
                       </Link>
-                    ) : item === 'Tour' ? (
-                      <Link
-                        href="/#tour"
-                        className="px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-200 text-navy-blue hover:bg-blue-100/70 hover:text-blue-accent focus:outline-none focus:ring-2 focus:ring-blue-accent focus:ring-offset-2"
-                      >
-                        {item}
-                      </Link>
-                    ) : item === 'Contact' ? (
-                      <Link
-                        href="/#contact"
-                        className="px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-200 text-navy-blue hover:bg-blue-100/70 hover:text-blue-accent focus:outline-none focus:ring-2 focus:ring-blue-accent focus:ring-offset-2"
-                      >
-                        {item}
-                      </Link>
-                    ) : item === 'Admissions' ? (
-                      <Link
-                        href="/admissions"
-                        className="px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-200 text-navy-blue hover:bg-blue-100/70 hover:text-blue-accent focus:outline-none focus:ring-2 focus:ring-blue-accent focus:ring-offset-2"
-                      >
-                        {item}
-                      </Link>
-                    ) : item === 'History' ? (
-                      <Link
-                        href="/history"
-                        className="px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-200 text-navy-blue hover:bg-blue-100/70 hover:text-blue-accent focus:outline-none focus:ring-2 focus:ring-blue-accent focus:ring-offset-2"
-                      >
-                        {item}
-                      </Link>
-                    ) : null}
+                    )}
                   </li>
                 ))}
               </ul>
@@ -138,58 +120,16 @@ export default function Navbar() {
           <nav aria-label="Mobile site navigation">
             <ul className="flex flex-col p-4 space-y-2" role="list">
               {navItems.map((item) => (
-                <li key={item} className="flex flex-col">
-                  {item === 'Home' ? (
-                    <Link
-                      href="/"
-                      className="font-semibold text-base py-3 px-4 transition duration-300 text-navy-blue hover:bg-blue-accent hover:text-white rounded-lg"
-                      onClick={() => setIsMobileMenuOpen(false)}
-                    >
-                      {item}
-                    </Link>
-                  ) : item === 'Academics' ? (
-                    <Link
-                      href="/#academics"
-                      className="font-semibold text-base py-3 px-4 transition duration-300 text-navy-blue hover:bg-blue-accent hover:text-white rounded-lg"
-                      onClick={() => setIsMobileMenuOpen(false)}
-                    >
-                      {item}
-                    </Link>
-                  ) : item === 'Tour' ? (
-                    <Link
-                      href="/#tour"
-                      className="font-semibold text-base py-3 px-4 transition duration-300 text-navy-blue hover:bg-blue-accent hover:text-white rounded-lg"
-                      onClick={() => setIsMobileMenuOpen(false)}
-                    >
-                      {item}
-                    </Link>
-                  ) : item === 'Contact' ? (
-                    <Link
-                      href="/#contact"
-                      className="font-semibold text-base py-3 px-4 transition duration-300 text-navy-blue hover:bg-blue-accent hover:text-white rounded-lg"
-                      onClick={() => setIsMobileMenuOpen(false)}
-                    >
-                      {item}
-                    </Link>
-                  ) : item === 'Admissions' ? (
-                    <Link
-                      href="/admissions"
-                      className="font-semibold text-base py-3 px-4 transition duration-300 text-navy-blue hover:bg-blue-accent hover:text-white rounded-lg"
-                      onClick={() => setIsMobileMenuOpen(false)}
-                    >
-                      {item}
-                    </Link>
-                  ) : item === 'History' ? (
-                    <Link
-                      href="/history"
-                      className="font-semibold text-base py-3 px-4 transition duration-300 text-navy-blue hover:bg-blue-accent hover:text-white rounded-lg"
-                      onClick={() => setIsMobileMenuOpen(false)}
-                    >
-                      {item}
-                    </Link>
-                  ) : null}
+                <li key={item.label} className="flex flex-col">
+                  <Link
+                    href={item.href}
+                    className="font-semibold text-base py-3 px-4 transition duration-300 text-navy-blue hover:bg-blue-accent hover:text-white rounded-lg"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    {item.label}
+                  </Link>
 
-                  {item === 'Academics' && (
+                  {item.hasDropdown && (
                     <div className="flex flex-col ml-4 pl-4 border-l-2 border-blue-100 mt-1 mb-2 space-y-1">
                       <a
                         href="https://drive.google.com/drive/folders/1JbR11sv3I1avlLajkJXFzMqgum21snNE"
