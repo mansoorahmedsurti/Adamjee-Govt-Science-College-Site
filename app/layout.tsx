@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   applicationName: 'Adamjee Government Science College',
   title: {
     template: 'Adamjee Government Science College - %s',
-    default: 'Adamjee Government Science College - Home',
+    default: 'Adamjee Government Science College',
   },
   alternates: {
     canonical: '/',
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_PK',
     url: siteUrl,
-    title: 'Adamjee Government Science College - Home',
+    title: 'Adamjee Government Science College',
     description: 'Adamjee Government Science College in Karachi offers Pre-Engineering, Pre-Medical, and Computer Science programs with excellence in education since 1961.',
     siteName: 'Adamjee Government Science College',
     images: [
@@ -50,7 +50,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Adamjee Government Science College - Home',
+    title: 'Adamjee Government Science College',
     description: 'Adamjee Government Science College in Karachi offers Pre-Engineering, Pre-Medical, and Computer Science programs with excellence in education since 1961.',
     images: ['/images/agscpics.jpg'],
   },

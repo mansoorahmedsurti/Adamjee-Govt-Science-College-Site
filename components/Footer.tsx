@@ -66,14 +66,9 @@ export default function Footer() {
           <p className="mt-3 text-xs uppercase tracking-[0.14em] text-blue-200">Excellence in Science Education</p>
           <p className="mt-4">
             Designed & Developed by{' '}
-            <a
-              href="https://mansoor--ahmed.vercel.app/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-white font-semibold"
-            >
+            <span className="font-semibold">
               Mansoor Ahmed
-            </a>
+            </span>
           </p>
         </div>
       </div>
