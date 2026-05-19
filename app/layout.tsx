@@ -1,10 +1,8 @@
 import type React from "react"
 import type { Metadata } from "next"
 import { Analytics } from "@vercel/analytics/next"
+import { siteUrl } from "@/lib/site-config"
 import "./globals.css"
-
-const defaultSiteUrl = 'https://agsckarachi.edu.pk'
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL?.trim() || defaultSiteUrl
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -56,7 +54,9 @@ export const metadata: Metadata = {
   },
 }
 
+// '@context' is intentionally provided once at the root structuredDataGraph object.
 const websiteJsonLd = {
+  '@id': `${siteUrl}/#website`,
   '@type': 'WebSite',
   name: 'Adamjee Government Science College',
   alternateName: 'AGSC',
@@ -99,31 +99,19 @@ const pageJsonLd = [
     '@type': 'WebPage',
     name: 'Home',
     url: `${siteUrl}/`,
-    isPartOf: {
-      '@type': 'WebSite',
-      name: 'Adamjee Government Science College',
-      url: siteUrl,
-    },
+    isPartOf: { '@id': `${siteUrl}/#website` },
   },
   {
     '@type': 'WebPage',
     name: 'Admissions',
     url: `${siteUrl}/admissions`,
-    isPartOf: {
-      '@type': 'WebSite',
-      name: 'Adamjee Government Science College',
-      url: siteUrl,
-    },
+    isPartOf: { '@id': `${siteUrl}/#website` },
   },
   {
     '@type': 'WebPage',
     name: 'History',
     url: `${siteUrl}/history`,
-    isPartOf: {
-      '@type': 'WebSite',
-      name: 'Adamjee Government Science College',
-      url: siteUrl,
-    },
+    isPartOf: { '@id': `${siteUrl}/#website` },
   },
 ]
 

@@ -1,23 +1,21 @@
 import type { MetadataRoute } from 'next'
-
-const defaultSiteUrl = 'https://agsckarachi.edu.pk'
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL?.trim() || defaultSiteUrl
+import { siteUrl } from '@/lib/site-config'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
     {
       url: `${siteUrl}/`,
-      changeFrequency: 'weekly',
+      changeFrequency: 'weekly' as const,
       priority: 1,
     },
     {
       url: `${siteUrl}/admissions`,
-      changeFrequency: 'weekly',
+      changeFrequency: 'weekly' as const,
       priority: 0.9,
     },
     {
       url: `${siteUrl}/history`,
-      changeFrequency: 'monthly',
+      changeFrequency: 'monthly' as const,
       priority: 0.8,
     },
   ]

@@ -2,9 +2,7 @@ import type { Metadata } from 'next';
 import Foundations from '@/components/Foundations';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
-
-const defaultSiteUrl = 'https://agsckarachi.edu.pk';
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL?.trim() || defaultSiteUrl;
+import { siteUrl } from '@/lib/site-config';
 
 export const metadata: Metadata = {
   title: 'History',

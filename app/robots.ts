@@ -1,7 +1,5 @@
 import type { MetadataRoute } from 'next'
-
-const defaultSiteUrl = 'https://agsckarachi.edu.pk'
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL?.trim() || defaultSiteUrl
+import { siteUrl } from '@/lib/site-config'
 
 export default function robots(): MetadataRoute.Robots {
   return {
