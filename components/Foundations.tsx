@@ -62,7 +62,7 @@ export default function Foundations() {
               title="Adamjee Government Science College history video"
               className="w-full h-full"
               loading="lazy"
-              allow="encrypted-media; gyroscope; picture-in-picture; web-share"
+              allow="encrypted-media; picture-in-picture; web-share"
               referrerPolicy="strict-origin-when-cross-origin"
               allowFullScreen
             />
