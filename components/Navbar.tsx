@@ -4,21 +4,28 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { useState, useEffect } from 'react';
 import { ChevronDown } from 'lucide-react';
-import type { ComponentProps } from 'react';
-
-type NavItem = {
+type RouteNavItem = {
+  type: 'route';
   label: string;
-  href: ComponentProps<typeof Link>['href'];
+  href: '/' | '/admissions' | '/history';
+};
+
+type SectionNavItem = {
+  type: 'section';
+  label: string;
+  href: '/#academics' | '/#tour' | '/#contact';
   hasDropdown?: boolean;
 };
 
+type NavItem = RouteNavItem | SectionNavItem;
+
 const navItems: NavItem[] = [
-  { label: 'Home', href: '/' },
-  { label: 'Academics', href: { pathname: '/', hash: 'academics' }, hasDropdown: true },
-  { label: 'Tour', href: { pathname: '/', hash: 'tour' } },
-  { label: 'Admissions', href: '/admissions' },
-  { label: 'History', href: '/history' },
-  { label: 'Contact', href: { pathname: '/', hash: 'contact' } },
+  { type: 'route', label: 'Home', href: '/' },
+  { type: 'section', label: 'Academics', href: '/#academics', hasDropdown: true },
+  { type: 'section', label: 'Tour', href: '/#tour' },
+  { type: 'route', label: 'Admissions', href: '/admissions' },
+  { type: 'route', label: 'History', href: '/history' },
+  { type: 'section', label: 'Contact', href: '/#contact' },
 ];
 
 export default function Navbar() {
@@ -62,12 +69,12 @@ export default function Navbar() {
               <ul className="hidden md:flex gap-2 items-center" role="list">
                 {navItems.map((item) => (
                   <li key={item.label}>
-                    {item.hasDropdown ? (
+                    {item.type === 'section' && item.hasDropdown ? (
                       <div className="relative group py-4">
-                        <Link href={item.href} className={`${baseLinkClass} flex items-center gap-1`}>
+                        <a href={item.href} className={`${baseLinkClass} flex items-center gap-1`}>
                           {item.label}
                           <ChevronDown size={14} className="text-navy-blue group-hover:text-blue-accent transition-colors" />
-                        </Link>
+                        </a>
 
                         <div className="absolute left-0 top-full pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
                           <div className="bg-white/95 backdrop-blur-sm rounded-xl shadow-xl border border-blue-100 overflow-hidden w-64 flex flex-col">
@@ -86,9 +93,15 @@ export default function Navbar() {
                         </div>
                       </div>
                     ) : (
-                      <Link href={item.href} className={baseLinkClass}>
-                        {item.label}
-                      </Link>
+                      item.type === 'section' ? (
+                        <a href={item.href} className={baseLinkClass}>
+                          {item.label}
+                        </a>
+                      ) : (
+                        <Link href={item.href} className={baseLinkClass}>
+                          {item.label}
+                        </Link>
+                      )
                     )}
                   </li>
                 ))}
@@ -122,15 +135,25 @@ export default function Navbar() {
             <ul className="flex flex-col p-4 space-y-2" role="list">
               {navItems.map((item) => (
                 <li key={item.label} className="flex flex-col">
-                  <Link
-                    href={item.href}
-                    className="font-semibold text-base py-3 px-4 transition duration-300 text-navy-blue hover:bg-blue-accent hover:text-white rounded-lg"
-                    onClick={() => setIsMobileMenuOpen(false)}
-                  >
-                    {item.label}
-                  </Link>
+                  {item.type === 'section' ? (
+                    <a
+                      href={item.href}
+                      className="font-semibold text-base py-3 px-4 transition duration-300 text-navy-blue hover:bg-blue-accent hover:text-white rounded-lg"
+                      onClick={() => setIsMobileMenuOpen(false)}
+                    >
+                      {item.label}
+                    </a>
+                  ) : (
+                    <Link
+                      href={item.href}
+                      className="font-semibold text-base py-3 px-4 transition duration-300 text-navy-blue hover:bg-blue-accent hover:text-white rounded-lg"
+                      onClick={() => setIsMobileMenuOpen(false)}
+                    >
+                      {item.label}
+                    </Link>
+                  )}
 
-                  {item.hasDropdown && (
+                  {item.type === 'section' && item.hasDropdown && (
                     <div className="flex flex-col ml-4 pl-4 border-l-2 border-blue-100 mt-1 mb-2 space-y-1">
                       <a
                         href="https://drive.google.com/drive/folders/1JbR11sv3I1avlLajkJXFzMqgum21snNE"
