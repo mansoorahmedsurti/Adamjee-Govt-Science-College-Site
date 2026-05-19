@@ -4,20 +4,21 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { useState, useEffect } from 'react';
 import { ChevronDown } from 'lucide-react';
+import type { ComponentProps } from 'react';
 
 type NavItem = {
   label: string;
-  href: string;
+  href: ComponentProps<typeof Link>['href'];
   hasDropdown?: boolean;
 };
 
 const navItems: NavItem[] = [
   { label: 'Home', href: '/' },
-  { label: 'Academics', href: '/#academics', hasDropdown: true },
-  { label: 'Tour', href: '/#tour' },
+  { label: 'Academics', href: { pathname: '/', hash: 'academics' }, hasDropdown: true },
+  { label: 'Tour', href: { pathname: '/', hash: 'tour' } },
   { label: 'Admissions', href: '/admissions' },
   { label: 'History', href: '/history' },
-  { label: 'Contact', href: '/#contact' },
+  { label: 'Contact', href: { pathname: '/', hash: 'contact' } },
 ];
 
 export default function Navbar() {
