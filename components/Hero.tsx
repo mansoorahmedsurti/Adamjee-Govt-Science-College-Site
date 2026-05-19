@@ -30,7 +30,7 @@ export default function Hero() {
         blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEASABIAAD/2wBDAAEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQH/2wBDAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQH/wAARCAADAAQDAREAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwA/AKqL//Z"
       />
 
-      <div className="absolute inset-0 bg-gradient-to-b from-[#0f1f4d]/75 via-[#173a8f]/70 to-[#173a8f]/85" />
+      <div className="absolute inset-0 bg-gradient-to-b from-[#0f1f4d]/50 via-[#173a8f]/38 to-[#0f1f4d]/58" />
 
       <motion.div
         initial={{ opacity: 0, y: 24 }}
@@ -44,11 +44,11 @@ export default function Hero() {
           </span>
         </div>
 
-        <h1 className="text-white text-4xl sm:text-5xl md:text-7xl font-bold mb-5 font-inter leading-tight">
+        <h1 className="text-slate-50 drop-shadow-[0_2px_12px_rgba(15,31,77,0.45)] text-4xl sm:text-5xl md:text-7xl font-bold mb-5 font-inter leading-tight">
           Adamjee Government Science College
         </h1>
 
-        <p className="text-base sm:text-lg md:text-2xl mb-4 text-blue-100">Modern Learning. Academic Excellence. Future Ready.</p>
+        <p className="text-base sm:text-lg md:text-2xl mb-4 text-white/90">Modern Learning. Academic Excellence. Future Ready.</p>
 
         <p className="max-w-3xl mx-auto text-sm sm:text-base md:text-lg text-blue-50/95 mb-9">
           Empowering students since 1961 with a high-merit academic culture across Pre-Engineering, Pre-Medical, and
