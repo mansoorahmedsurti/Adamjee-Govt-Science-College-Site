@@ -64,6 +64,41 @@ const websiteJsonLd = {
   url: siteUrl,
 }
 
+const organizationJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'CollegeOrUniversity',
+  name: 'Adamjee Government Science College',
+  url: siteUrl,
+  logo: `${siteUrl}/images/agsc.png`,
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: 'Business Recorder Road, Soldier Bazaar, Garden East',
+    addressLocality: 'Karachi',
+    addressCountry: 'PK',
+  },
+}
+
+const siteNavigationJsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'SiteNavigationElement',
+    name: 'Home',
+    url: `${siteUrl}/`,
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'SiteNavigationElement',
+    name: 'Admissions',
+    url: `${siteUrl}/admissions`,
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'SiteNavigationElement',
+    name: 'History',
+    url: `${siteUrl}/history`,
+  },
+]
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -75,6 +110,14 @@ export default function RootLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(siteNavigationJsonLd) }}
         />
         <script
           async

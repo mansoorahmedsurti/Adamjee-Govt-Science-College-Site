@@ -3,10 +3,36 @@ import SECCAPAdmissions from '@/components/SECCAPAdmissions';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 
+const defaultSiteUrl = 'https://agsckarachi.edu.pk';
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL?.trim() || defaultSiteUrl;
+
 export const metadata: Metadata = {
   title: 'Admissions',
   description:
     'Adamjee Government Science College - Admissions information, eligibility, and SECCAP cutoff updates for prospective students.',
+  alternates: {
+    canonical: '/admissions',
+  },
+  openGraph: {
+    url: `${siteUrl}/admissions`,
+    title: 'Adamjee Government Science College - Admissions',
+    description:
+      'Admissions information, eligibility, and SECCAP cutoff updates for prospective students.',
+  },
+};
+
+const admissionsJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  name: 'Admissions',
+  url: `${siteUrl}/admissions`,
+  description:
+    'Admissions information, eligibility, and SECCAP cutoff updates for prospective students.',
+  isPartOf: {
+    '@type': 'WebSite',
+    name: 'Adamjee Government Science College',
+    url: siteUrl,
+  },
 };
 
 export default function AdmissionsPage() {
@@ -21,6 +47,10 @@ export default function AdmissionsPage() {
       </a>
 
       <Navbar />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(admissionsJsonLd) }}
+      />
       <main id="main-content">
         <section className="py-20 bg-beige">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
