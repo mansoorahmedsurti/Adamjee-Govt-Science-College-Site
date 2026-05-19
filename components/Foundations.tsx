@@ -54,7 +54,7 @@ export default function Foundations() {
           ))}
         </div>
 
-        <div className="mt-16">
+        <section className="mt-16" aria-label="College history video">
           <h3 className="text-xl sm:text-2xl font-bold mb-6 text-forest-green text-center">Watch Our History</h3>
           <div className="w-full max-w-5xl mx-auto aspect-video bg-slate-900 rounded-2xl overflow-hidden shadow-2xl ring-1 ring-blue-200">
             <iframe
@@ -62,12 +62,12 @@ export default function Foundations() {
               title="Adamjee Government Science College history video"
               className="w-full h-full"
               loading="lazy"
-              allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allow="encrypted-media; gyroscope; picture-in-picture; web-share"
               referrerPolicy="strict-origin-when-cross-origin"
               allowFullScreen
             />
           </div>
-        </div>
+        </section>
       </div>
     </section>
   );
