@@ -53,6 +53,21 @@ export default function Foundations() {
             </motion.div>
           ))}
         </div>
+
+        <div className="mt-16">
+          <h3 className="text-xl sm:text-2xl font-bold mb-6 text-forest-green text-center">Watch Our History</h3>
+          <div className="w-full max-w-5xl mx-auto aspect-video bg-slate-900 rounded-2xl overflow-hidden shadow-2xl ring-1 ring-blue-200">
+            <iframe
+              src="https://www.youtube.com/embed/MaKr5cbXrOY"
+              title="Adamjee Government Science College history video"
+              className="w-full h-full"
+              loading="lazy"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerPolicy="strict-origin-when-cross-origin"
+              allowFullScreen
+            />
+          </div>
+        </div>
       </div>
     </section>
   );
