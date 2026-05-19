@@ -57,7 +57,6 @@ export const metadata: Metadata = {
 }
 
 const websiteJsonLd = {
-  '@context': 'https://schema.org',
   '@type': 'WebSite',
   name: 'Adamjee Government Science College',
   alternateName: 'AGSC',
@@ -65,7 +64,6 @@ const websiteJsonLd = {
 }
 
 const organizationJsonLd = {
-  '@context': 'https://schema.org',
   '@type': 'CollegeOrUniversity',
   name: 'Adamjee Government Science College',
   url: siteUrl,
@@ -80,24 +78,64 @@ const organizationJsonLd = {
 
 const siteNavigationJsonLd = [
   {
-    '@context': 'https://schema.org',
     '@type': 'SiteNavigationElement',
     name: 'Home',
     url: `${siteUrl}/`,
   },
   {
-    '@context': 'https://schema.org',
     '@type': 'SiteNavigationElement',
     name: 'Admissions',
     url: `${siteUrl}/admissions`,
   },
   {
-    '@context': 'https://schema.org',
     '@type': 'SiteNavigationElement',
     name: 'History',
     url: `${siteUrl}/history`,
   },
 ]
+
+const pageJsonLd = [
+  {
+    '@type': 'WebPage',
+    name: 'Home',
+    url: `${siteUrl}/`,
+    isPartOf: {
+      '@type': 'WebSite',
+      name: 'Adamjee Government Science College',
+      url: siteUrl,
+    },
+  },
+  {
+    '@type': 'WebPage',
+    name: 'Admissions',
+    url: `${siteUrl}/admissions`,
+    isPartOf: {
+      '@type': 'WebSite',
+      name: 'Adamjee Government Science College',
+      url: siteUrl,
+    },
+  },
+  {
+    '@type': 'WebPage',
+    name: 'History',
+    url: `${siteUrl}/history`,
+    isPartOf: {
+      '@type': 'WebSite',
+      name: 'Adamjee Government Science College',
+      url: siteUrl,
+    },
+  },
+]
+
+const structuredDataGraph = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    websiteJsonLd,
+    organizationJsonLd,
+    ...siteNavigationJsonLd,
+    ...pageJsonLd,
+  ],
+}
 
 export default function RootLayout({
   children,
@@ -109,15 +147,7 @@ export default function RootLayout({
       <body className="font-sans antialiased">
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(siteNavigationJsonLd) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredDataGraph) }}
         />
         <script
           async
