@@ -21,20 +21,6 @@ export const metadata: Metadata = {
   },
 };
 
-const historyJsonLd = {
-  '@context': 'https://schema.org',
-  '@type': 'WebPage',
-  name: 'History',
-  url: `${siteUrl}/history`,
-  description:
-    "History and foundations of one of Karachi's leading science colleges.",
-  isPartOf: {
-    '@type': 'WebSite',
-    name: 'Adamjee Government Science College',
-    url: siteUrl,
-  },
-};
-
 export default function HistoryPage() {
   return (
     <div className="bg-beige">
@@ -47,10 +33,6 @@ export default function HistoryPage() {
       </a>
 
       <Navbar />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(historyJsonLd) }}
-      />
       <main id="main-content">
         <section className="py-20 bg-beige">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

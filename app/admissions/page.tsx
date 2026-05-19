@@ -21,20 +21,6 @@ export const metadata: Metadata = {
   },
 };
 
-const admissionsJsonLd = {
-  '@context': 'https://schema.org',
-  '@type': 'WebPage',
-  name: 'Admissions',
-  url: `${siteUrl}/admissions`,
-  description:
-    'Admissions information, eligibility, and SECCAP cutoff updates for prospective students.',
-  isPartOf: {
-    '@type': 'WebSite',
-    name: 'Adamjee Government Science College',
-    url: siteUrl,
-  },
-};
-
 export default function AdmissionsPage() {
   return (
     <div className="bg-beige">
@@ -47,10 +33,6 @@ export default function AdmissionsPage() {
       </a>
 
       <Navbar />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(admissionsJsonLd) }}
-      />
       <main id="main-content">
         <section className="py-20 bg-beige">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
