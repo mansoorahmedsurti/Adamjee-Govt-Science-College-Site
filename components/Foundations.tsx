@@ -63,7 +63,7 @@ export default function Foundations() {
               className="w-full h-full"
               loading="lazy"
               allow="encrypted-media; picture-in-picture; web-share"
-              sandbox="allow-scripts allow-same-origin allow-presentation"
+              sandbox="allow-scripts allow-presentation"
               referrerPolicy="strict-origin-when-cross-origin"
               allowFullScreen
             />
