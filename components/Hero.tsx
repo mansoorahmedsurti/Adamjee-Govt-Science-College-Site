@@ -1,12 +1,12 @@
 'use client';
 
 import Image from 'next/image';
+import Link from 'next/link';
 import { motion } from 'framer-motion';
 
 export default function Hero() {
   return (
-    <section id="home" className="relative h-screen overflow-hidden flex items-center justify-center">
-      {/* Preload critical image dimensions to avoid layout shift */}
+    <section id="home" className="relative min-h-[92vh] overflow-hidden flex items-center justify-center pt-24 pb-16">
       <div className="absolute inset-0 overflow-hidden">
         <img
           src="/images/agscpics.jpg"
@@ -18,6 +18,7 @@ export default function Hero() {
           height="1080"
         />
       </div>
+
       <Image
         src="/images/agscpics.jpg"
         alt="Adamjee Government Science College Campus"
@@ -29,24 +30,38 @@ export default function Hero() {
         blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEASABIAAD/2wBDAAEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQH/2wBDAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQH/wAARCAADAAQDAREAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwA/AKqL//Z"
       />
 
-      {/* Dark overlay */}
-      <div className="absolute inset-0 bg-[#1e3a8a]/50"></div>
+      <div className="absolute inset-0 bg-gradient-to-b from-[#0f1f4d]/75 via-[#173a8f]/70 to-[#173a8f]/85" />
 
-      {/* Content */}
       <motion.div
-        initial={{ opacity: 0, y: 20 }}
+        initial={{ opacity: 0, y: 24 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, ease: 'easeOut' }}
-        className="relative z-10 text-center text-white max-w-4xl mx-auto px-4"
+        transition={{ duration: 0.7, ease: 'easeOut' }}
+        className="relative z-10 text-center text-white max-w-5xl mx-auto px-4"
       >
-        <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold mb-6 font-inter">
+        <div className="mb-6">
+          <span className="inline-flex items-center px-4 py-1.5 rounded-full text-xs sm:text-sm font-semibold uppercase tracking-[0.12em] bg-white/15 border border-white/20">
+            Premier Public Science College • Karachi
+          </span>
+        </div>
+
+        <h1 className="text-white text-4xl sm:text-5xl md:text-7xl font-bold mb-5 font-inter leading-tight">
           Adamjee Government Science College
         </h1>
-        <p className="text-lg sm:text-xl md:text-2xl mb-8">Excellence in Science Education Since 1961</p>
-        <div className="mb-8">
-          <span className="inline-block px-6 py-2 rounded-full text-lg font-semibold bg-blue-accent text-white">
-            Highest Merit Science College in Karachi
-          </span>
+
+        <p className="text-base sm:text-lg md:text-2xl mb-4 text-blue-100">Modern Learning. Academic Excellence. Future Ready.</p>
+
+        <p className="max-w-3xl mx-auto text-sm sm:text-base md:text-lg text-blue-50/95 mb-9">
+          Empowering students since 1961 with a high-merit academic culture across Pre-Engineering, Pre-Medical, and
+          Computer Science.
+        </p>
+
+        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <Link href="/admissions" className="btn-premium px-7 py-3.5 min-w-0">
+            View Admissions
+          </Link>
+          <Link href="/#tour" className="btn-glass px-7 py-3.5 min-w-0">
+            Explore Campus Tour
+          </Link>
         </div>
       </motion.div>
     </section>

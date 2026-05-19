@@ -3,7 +3,6 @@
 import { motion } from 'framer-motion';
 import dynamic from 'next/dynamic';
 
-// Dynamically import FacebookFeed with no SSR to improve initial load
 const FacebookFeed = dynamic(() => import('@/components/FacebookFeed'), {
   loading: () => (
     <div className="flex justify-center w-full h-96 bg-gray-100 rounded-lg items-center">
@@ -15,7 +14,7 @@ const FacebookFeed = dynamic(() => import('@/components/FacebookFeed'), {
 
 export default function News() {
   return (
-    <section id="news" className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
+    <section id="news" className="py-20 px-4 sm:px-6 lg:px-8 bg-transparent">
       <div className="max-w-7xl mx-auto">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
@@ -25,12 +24,11 @@ export default function News() {
         >
           Latest News & Updates
         </motion.h2>
-        <p className="text-center text-gray-600 mb-12">
-          Stay updated with the latest happenings at Adamjee Government Science College
+        <p className="text-center text-slate-600 mb-12 max-w-2xl mx-auto">
+          Stay connected with announcements, events, and updates from Adamjee Government Science College.
         </p>
 
-        {/* Facebook Timeline */}
-        <div className="mb-12">
+        <div className="bg-white/90 backdrop-blur-sm rounded-2xl border border-blue-100 shadow-xl p-4 sm:p-6 md:p-8">
           <h3 className="text-xl sm:text-2xl font-bold mb-6 text-center text-forest-green">Facebook Timeline</h3>
           <FacebookFeed />
         </div>
