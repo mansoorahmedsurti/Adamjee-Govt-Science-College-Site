@@ -30,7 +30,7 @@ export default function Hero() {
         blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEASABIAAD/2wBDAAEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQH/2wBDAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQH/wAARCAADAAQDAREAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwA/AKqL//Z"
       />
 
-      <div className="absolute inset-0 bg-gradient-to-b from-[#0f1f4d]/50 via-[#173a8f]/38 to-[#173a8f]/52" />
+      <div className="absolute inset-0 bg-gradient-to-b from-black/45 via-black/35 to-black/50" />
 
       <motion.div
         initial={{ opacity: 0, y: 24 }}
@@ -50,7 +50,7 @@ export default function Hero() {
 
         <p className="text-base sm:text-lg md:text-2xl mb-4 text-white/90">Modern Learning. Academic Excellence. Future Ready.</p>
 
-        <p className="max-w-3xl mx-auto text-sm sm:text-base md:text-lg text-blue-50/95 mb-9">
+        <p className="max-w-3xl mx-auto text-sm sm:text-base md:text-lg text-white/95 mb-9">
           Empowering students since 1961 with a high-merit academic culture across Pre-Engineering, Pre-Medical, and
           Computer Science.
         </p>
@@ -60,7 +60,7 @@ export default function Hero() {
             View Admissions
           </Link>
           <Link href="/#tour" className="btn-glass px-7 py-3.5 min-w-0">
-            Explore Campus Tour
+            Explore Campus
           </Link>
         </div>
       </motion.div>
