@@ -58,12 +58,12 @@ export default function Foundations() {
           <h3 className="text-xl sm:text-2xl font-bold mb-6 text-forest-green text-center">Watch Our History</h3>
           <div className="w-full max-w-5xl mx-auto aspect-video bg-slate-900 rounded-2xl overflow-hidden shadow-2xl ring-1 ring-blue-200">
             <iframe
-              src="https://www.youtube.com/embed/MaKr5cbXrOY"
+              src="https://www.youtube-nocookie.com/embed/MaKr5cbXrOY"
               title="Adamjee Government Science College history video"
               className="w-full h-full"
               loading="lazy"
-              allow="encrypted-media; picture-in-picture; web-share"
-              sandbox="allow-scripts allow-presentation"
+              allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; web-share"
+              sandbox="allow-scripts allow-same-origin allow-presentation"
               referrerPolicy="strict-origin-when-cross-origin"
               allowFullScreen
             />

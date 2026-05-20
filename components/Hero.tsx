@@ -44,7 +44,7 @@ export default function Hero() {
           </span>
         </div>
 
-        <h1 className="text-blue-100 drop-shadow-[0_2px_12px_rgba(15,31,77,0.45)] text-4xl sm:text-5xl md:text-7xl font-bold mb-5 font-inter leading-tight">
+        <h1 className="text-white drop-shadow-[0_4px_18px_rgba(0,0,0,0.7)] text-4xl sm:text-5xl md:text-7xl font-bold mb-5 font-inter leading-tight">
           Adamjee Government Science College
         </h1>
 
