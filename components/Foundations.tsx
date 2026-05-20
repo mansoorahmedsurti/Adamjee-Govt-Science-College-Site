@@ -63,7 +63,7 @@ export default function Foundations() {
               className="w-full h-full"
               loading="lazy"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              sandbox="allow-scripts allow-presentation allow-popups"
+              sandbox="allow-scripts allow-presentation"
               referrerPolicy="strict-origin-when-cross-origin"
               allowFullScreen
             />
