@@ -175,7 +175,7 @@ h6 {
   font-family: var(--font-inter);
   font-weight: 700;
   letter-spacing: -0.02em;
-  color: var(--color-navy-dark);
+  /* color: var(--color-navy-dark); */
 }
 
 h1 {
