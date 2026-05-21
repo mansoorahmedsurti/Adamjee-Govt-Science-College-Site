@@ -44,11 +44,11 @@ export default function Hero() {
           </span>
         </div>
 
-        <h1 className="text-blue-200 drop-shadow-[0_2px_8px_rgba(0,0,0,0.4)] text-4xl sm:text-5xl md:text-7xl font-bold mb-5 font-inter leading-tight">
+        <h1 className="text-blue-800 drop-shadow-[0_2px_8px_rgba(0,0,0,0.4)] text-4xl sm:text-5xl md:text-7xl font-bold mb-5 font-inter leading-tight">
   Adamjee Government Science College
 </h1>
 
-        <p className="text-base sm:text-lg md:text-2xl mb-4 text-white/90">Competitive Environment. Brilliant Minds. Phenomenal Faculty</p>
+        <p className="text-base sm:text-lg md:text-2xl mb-4 text-white/90">Brilliant Minds. Competitive Environment. Phenomenal Faculty</p>
 
         <p className="max-w-3xl mx-auto text-sm sm:text-base md:text-lg text-white/95 mb-9">
           Empowering students since 1961 with a high-merit academic culture across Pre-Engineering, Pre-Medical, and
