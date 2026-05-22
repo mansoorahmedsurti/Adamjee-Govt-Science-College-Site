@@ -57,8 +57,7 @@ export default function Hero() {
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Link href="/admissions" className="btn-premium px-7 py-3.5 min-w-0">
-            View Admissions D
-            etails
+            View Admissions Details
           </Link>
           <Link href="/#tour" className="btn-glass px-7 py-3.5 min-w-0">
             Explore Campus
