@@ -48,12 +48,12 @@ export default function Hero() {
   Adamjee Government Science College
 </h1>
 
-        <p className="text-base sm:text-lg md:text-2xl mb-4 font-bold text-blue-900">Brilliant Minds. Competitive Environment. Phenomenal Faculty</p>
+        <p className="text-base sm:text-lg md:text-2xl mb-4 font-bold text-white">Brilliant Minds. Competitive Environment. Phenomenal Faculty</p>
 
-        <p className="max-w-3xl mx-auto text-sm sm:text-base md:text-lg text-white/95 mb-9">
+        {/* <p className="max-w-3xl mx-auto text-sm sm:text-base md:text-lg text-white/95 mb-9">
           Empowering students since 1961 with a high-merit academic culture across Pre-Engineering, Pre-Medical, and
           Computer Science.
-        </p>
+        </p> */}
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Link href="/admissions" className="btn-premium px-7 py-3.5 min-w-0">
