@@ -66,9 +66,14 @@ export default function Footer() {
           <p className="mt-3 text-xs uppercase tracking-[0.14em] text-blue-200">Excellence in Science Education</p>
           <p className="mt-4">
             Designed & Developed by{' '}
-            <span className="font-semibold">
+            <Link
+              href="https://mansoorahmedsurti.me/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-semibold hover:text-white transition"
+            >
               Mansoor Ahmed
-            </span>
+            </Link>
           </p>
         </div>
       </div>
