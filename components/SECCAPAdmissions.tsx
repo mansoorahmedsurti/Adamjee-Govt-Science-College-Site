@@ -71,7 +71,7 @@ export default function SECCAPAdmissions() {
           </div>
 
           <p className="text-slate-700 mb-8 text-lg leading-relaxed">
-            Admissions to First Year Pre-Engineering & Pre-Medical are conducted exclusively through the
+            Admissions to First Year streams are conducted exclusively through the
             <strong className="text-forest-green"> Sindh Electronic Centralized College Admission Program (SECCAP)</strong>.
           </p>
 
