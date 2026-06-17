@@ -1,15 +1,15 @@
 import type React from "react"
 import type { Metadata } from "next"
 import { Analytics } from "@vercel/analytics/next"
-import { siteUrl } from "@/lib/site-config"
+import { siteName, siteShortName, siteUrl } from "@/lib/site-config"
 import "./globals.css"
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  applicationName: 'Adamjee Government Science College',
+  applicationName: siteName,
   title: {
-    template: 'Adamjee Government Science College - %s',
-    default: 'Adamjee Government Science College',
+    template: `${siteName} - %s`,
+    default: siteName,
   },
   alternates: {
     canonical: '/',
@@ -17,9 +17,9 @@ export const metadata: Metadata = {
   description:
     "Adamjee Government Science College in Karachi offers Pre-Engineering, Pre-Medical, and Computer Science programs with excellence in education since 1961.",
   keywords: ['Adamjee Government Science College', 'AGSC Karachi', 'Science College', 'Pre-Engineering', 'Pre-Medical', 'Computer Science', 'SECCAP', 'Education in Karachi'],
-  authors: [{ name: 'Adamjee Government Science College' }],
+  authors: [{ name: siteName }],
   creator: 'Mansoor Ahmed',
-  publisher: 'Adamjee Government Science College',
+  publisher: siteName,
   formatDetection: {
     email: false,
     address: false,
@@ -34,9 +34,9 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_PK',
     url: siteUrl,
-    title: 'Adamjee Government Science College',
+    title: siteName,
     description: 'Adamjee Government Science College in Karachi offers Pre-Engineering, Pre-Medical, and Computer Science programs with excellence in education since 1961.',
-    siteName: 'Adamjee Government Science College',
+    siteName,
     images: [
       {
         url: '/images/agscpics.jpg',
@@ -48,7 +48,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Adamjee Government Science College',
+    title: siteName,
     description: 'Adamjee Government Science College in Karachi offers Pre-Engineering, Pre-Medical, and Computer Science programs with excellence in education since 1961.',
     images: ['/images/agscpics.jpg'],
   },
@@ -58,14 +58,14 @@ export const metadata: Metadata = {
 const websiteJsonLd = {
   '@id': `${siteUrl}/#website`,
   '@type': 'WebSite',
-  name: 'Adamjee Government Science College',
-  alternateName: 'AGSC',
+  name: siteName,
+  alternateName: siteShortName,
   url: siteUrl,
 }
 
 const organizationJsonLd = {
   '@type': 'CollegeOrUniversity',
-  name: 'Adamjee Government Science College',
+  name: siteName,
   url: siteUrl,
   logo: `${siteUrl}/images/agsc.png`,
   address: {
