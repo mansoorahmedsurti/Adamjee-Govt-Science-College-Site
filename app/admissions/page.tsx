@@ -42,13 +42,13 @@ const admissionFlow = [
     step: '04',
     title: 'Track Merit Lists',
     description:
-      'Monitor official SECCAP merit list announcements and verify your name, stream, and reporting instructions.',
+      'Print Out the SECCAP result with the print button on top',
   },
   {
     step: '05',
     title: 'Complete Verification',
     description:
-      'Visit the college with required documents for verification and final confirmation within the announced deadline.',
+      'Visit the college with required documents for verification and admission confirmation by principal.',
   },
 ];
 
@@ -57,7 +57,7 @@ const requiredDocuments = [
   'Class X Admit Card',
   'B-Form/CNIC',
   '2 Recent passport-size photographs',
-  'SECCAP admission cofirmation receipt',
+  'SECCAP Admission Result(Generated after REsults announced)',
 ];
 
 export default function AdmissionsPage() {
