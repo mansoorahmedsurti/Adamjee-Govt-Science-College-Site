@@ -53,10 +53,11 @@ const admissionFlow = [
 ];
 
 const requiredDocuments = [
-  'SSC marks sheet and pass certificate',
-  'B-Form/CNIC (student and guardian where required)',
-  'Recent passport-size photographs',
-  'SECCAP application/merit acknowledgement slip',
+  'Class IX Marks Sheet',
+  'Class X Admit Card',
+  'B-Form/CNIC',
+  '2 Recent passport-size photographs',
+  'SECCAP admission cofirmation receipt',
 ];
 
 export default function AdmissionsPage() {
