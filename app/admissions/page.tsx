@@ -53,12 +53,15 @@ const admissionFlow = [
 ];
 
 const requiredDocuments = [
-  'Class IX Marks Sheet',
-  'Class X Admit Card',
-  'B-Form/CNIC',
-  '2 Recent passport-size photographs',
-  'SECCAP Admission Result(Generated after Results announced)',
-  'Attendance Affidavit',
+  { name: 'Class IX Marks Sheet' },
+  { name: 'Class X Admit Card' },
+  { name: 'B-Form/CNIC' },
+  { name: '2 Recent passport-size photographs' },
+  { name: 'SECCAP Admission Result(Generated after Results announced)' },
+  { 
+    name: 'Attendance Affidavit', 
+    downloadUrl: '/images/affidavit.jpg' 
+  },
 ];
 
 export default function AdmissionsPage() {
@@ -96,11 +99,37 @@ export default function AdmissionsPage() {
               <aside className="space-y-6">
                 <section className="bg-white rounded-xl shadow-lg p-6">
                   <h3 className="text-xl font-bold text-forest-green mb-4">Required Documents</h3>
-                  <ul className="space-y-3 text-slate-700">
-                    {requiredDocuments.map((document) => (
-                      <li key={document} className="flex items-start gap-2">
-                        <span className="mt-1 h-2 w-2 rounded-full bg-blue-accent" aria-hidden="true" />
-                        <span>{document}</span>
+                  <ul className="space-y-4 text-slate-700">
+                    {requiredDocuments.map((doc) => (
+                      <li key={doc.name} className="flex flex-col gap-2">
+                        <div className="flex items-start gap-2">
+                          <span className="mt-2 h-2 w-2 rounded-full bg-blue-accent flex-shrink-0" aria-hidden="true" />
+                          <span>{doc.name}</span>
+                        </div>
+                        {doc.downloadUrl && (
+                          <div className="pl-4">
+                            <a
+                              href={doc.downloadUrl}
+                              download="Attendance_Affidavit_Template.jpg"
+                              className="inline-flex items-center gap-2 px-3 py-1.5 text-xs font-semibold text-white bg-blue-accent hover:bg-navy-blue rounded-md transition-colors"
+                            >
+                              <svg
+                                className="w-3.5 h-3.5"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                              >
+                                <path
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                  strokeWidth="2"
+                                  d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
+                                />
+                              </svg>
+                              Download Template
+                            </a>
+                          </div>
+                        )}
                       </li>
                     ))}
                   </ul>
