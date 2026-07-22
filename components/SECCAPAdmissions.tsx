@@ -17,6 +17,7 @@ const cutoffMatrix: ProgramCutoff[] = [
   {
     program: 'Pre-Medical (PM)',
     yearlyCutoffs: {
+      2026: { marks: 486, percentage: '88.36%' },
       2025: { marks: 485, percentage: '88.18%' },
       2024: { marks: 461, percentage: '83.82%' },
       2023: { marks: 497, percentage: '90.36%' },
@@ -26,6 +27,7 @@ const cutoffMatrix: ProgramCutoff[] = [
   {
     program: 'Pre-Engineering (PE)',
     yearlyCutoffs: {
+      2026: { marks: 490, percentage: '89.09%' },
       2025: { marks: 468, percentage: '85.09%' },
       2024: { marks: 469, percentage: '85.27%' },
       2023: { marks: 485, percentage: '88.18%' },
@@ -35,6 +37,7 @@ const cutoffMatrix: ProgramCutoff[] = [
   {
     program: 'Computer Science (CS)',
     yearlyCutoffs: {
+      2026: { marks: 490, percentage: '89.09%' },
       2025: { marks: 481, percentage: '87.45%' },
       2024: { marks: 469, percentage: '85.27%' },
       2023: { marks: 496, percentage: '90.18%' },
