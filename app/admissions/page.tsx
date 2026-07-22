@@ -79,6 +79,7 @@ export default function AdmissionsPage() {
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-12 text-navy-blue text-center">
               Admissions
             </h2>
+            <SECCAPAdmissions />
             <div className="grid gap-10 mb-14 lg:grid-cols-[1.8fr_1fr]">
               <section className="bg-white rounded-xl shadow-lg p-6 sm:p-8">
                 <h3 className="text-xl sm:text-2xl font-bold text-forest-green mb-6">Admission Process (Step by Step)</h3>
@@ -113,7 +114,7 @@ export default function AdmissionsPage() {
                 </section>
               </aside>
             </div>
-            <SECCAPAdmissions />
+            
           </div>
         </section>
       </main>
