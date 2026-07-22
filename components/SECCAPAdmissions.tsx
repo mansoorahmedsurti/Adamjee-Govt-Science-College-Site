@@ -123,7 +123,7 @@ export default function SECCAPAdmissions() {
 
           <div className="mt-12">
             <h3 className="text-xl sm:text-2xl font-bold mb-6 font-inter text-forest-green">
-              SECCAP Cutoff Marks (2022–2025)
+              SECCAP Cutoff Marks (2022–2026)
             </h3>
             <div className="overflow-x-auto rounded-xl shadow-md ring-1 ring-slate-200">
               <table className="min-w-full border-collapse bg-white">
@@ -167,7 +167,7 @@ export default function SECCAPAdmissions() {
               </table>
             </div>
             <p className="text-slate-600 text-sm mt-4 italic">
-              *Cutoff marks are based on SECCAP merit lists for 2022–2025 and may be subject to change based on official
+              *Cutoff marks are based on SECCAP merit lists for 2022–2026 and may be subject to change based on official
               announcements.
             </p>
           </div>
