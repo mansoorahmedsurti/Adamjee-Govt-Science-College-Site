@@ -57,7 +57,8 @@ const requiredDocuments = [
   'Class X Admit Card',
   'B-Form/CNIC',
   '2 Recent passport-size photographs',
-  'SECCAP Admission Result(Generated after REsults announced)',
+  'SECCAP Admission Result(Generated after Results announced)',
+  'Attendance Affidavit',
 ];
 
 export default function AdmissionsPage() {
